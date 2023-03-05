@@ -30,5 +30,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/nav_menu"
+        app:itemIconTint="@drawable/botom_nav_colors"
+        app:itemTextColor="@drawable/botom_nav_colors"
         android:scrollIndicators="left"/>
 </RelativeLayout>
