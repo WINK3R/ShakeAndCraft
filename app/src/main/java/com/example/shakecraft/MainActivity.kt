@@ -8,11 +8,15 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.shakecraft.data.Stub
+import com.example.shakecraft.view.adapter.AdapterInventory
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
-
-
+    private var progressValue = 20
+    private var lastShakePosition = 0f
 
 
     // Function to hide NavigationBar
@@ -38,6 +42,8 @@ class MainActivity : AppCompatActivity() {
         hideSystemUI()
         setContentView(R.layout.activity_main)
         loadFragment(HomeFragment())
+
+
         bottomNav = findViewById(R.id.bottomNav) as BottomNavigationView
         bottomNav.setOnItemSelectedListener {
             when (it.itemId) {
@@ -56,6 +62,7 @@ class MainActivity : AppCompatActivity() {
                 else -> false
             }
         }
+
     }
     private  fun loadFragment(fragment: Fragment){
         val transaction = supportFragmentManager.beginTransaction()
