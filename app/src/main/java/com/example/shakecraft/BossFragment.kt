@@ -15,6 +15,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.ProgressBar
+import android.widget.TextView
+import androidx.navigation.fragment.findNavController
 import com.example.shakecraft.data.Stub
 import com.example.shakecraft.model.Boss
 import com.example.shakecraft.model.Generator
@@ -23,9 +25,9 @@ import kotlin.math.pow
 import kotlin.math.sqrt
 
 
-class BossFragment(var player: Player) : Fragment() {
+class BossFragment() : Fragment() {
 
-    var stubdata = Stub().load();
+
     private lateinit var sensorManager: SensorManager
     private lateinit var accelerometer: Sensor
     private lateinit var accelerometerEventListener: SensorEventListener
@@ -42,8 +44,16 @@ class BossFragment(var player: Player) : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        var  player = (activity as MainActivity).currentPlayer
+
         // Récupérez une référence à la ProgressBar dans la vue
         val view = inflater.inflate(R.layout.fragment_boss, container, false)
+        val buttonCollect = view.findViewById<TextView>(R.id.backbutton)
+        buttonCollect.setOnClickListener{
+            findNavController().navigate(R.id.action_bossFragment_to_homeFragment)
+        }
+
 
         progressBar = view.findViewById(R.id.progressBar)
         image = view.findViewById(R.id.imageBoss)
@@ -61,7 +71,6 @@ class BossFragment(var player: Player) : Fragment() {
                 // Ne faites rien ici
             }
 
-            @SuppressLint("ServiceCast")
             override fun onSensorChanged(event: SensorEvent?) {
                 val acceleration = sqrt(
                     event!!.values[0].pow(2) + event.values[1].pow(2) + event.values[2].pow(2)

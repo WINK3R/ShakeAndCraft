@@ -12,16 +12,20 @@ import com.example.shakecraft.model.Player
 import com.example.shakecraft.view.adapter.AdapterInventory
 
 
-class InventoryFragment(var player: Player) : Fragment( ) {
+class InventoryFragment() : Fragment( ) {
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
+    }
 
 
     override fun onCreateView(
+
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
+        var  player = (activity as MainActivity).currentPlayer
         val view = inflater.inflate(R.layout.fragment_inventory, container, false)
         val recyclerView: RecyclerView = view.findViewById(R.id.recyclerviewInventory)
         with(recyclerView) {

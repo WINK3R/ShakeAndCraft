@@ -8,6 +8,8 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shakecraft.data.Stub
@@ -42,34 +44,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         hideSystemUI()
         setContentView(R.layout.activity_main)
-        loadFragment(HomeFragment())
 
 
-        bottomNav = findViewById(R.id.bottomNav) as BottomNavigationView
-        bottomNav.setOnItemSelectedListener {
-            when (it.itemId) {
-                R.id.home -> {
-                    loadFragment(HomeFragment())
-                    true
-                }
-                R.id.inventory -> {
-                    loadFragment(InventoryFragment(currentPlayer))
-                    true
-                }
-                R.id.plus -> {
-                    loadFragment(CollectFragment(currentPlayer))
-                    true
-                }
-                else -> false
-            }
-        }
+        bottomNav = findViewById(R.id.bottomNavigationView) as BottomNavigationView
+        val navController = findNavController(R.id.fragment)
+        bottomNav.setupWithNavController(navController)
 
     }
-    private  fun loadFragment(fragment: Fragment){
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.container,fragment)
-        transaction.commit()
-    }
+
 
 
 }

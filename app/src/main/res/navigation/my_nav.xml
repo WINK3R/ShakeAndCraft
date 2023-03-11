@@ -3,18 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/my_nav"
-    app:startDestination="@id/mainActivity">
 
-    <activity
-        android:id="@+id/mainActivity"
-        android:name="com.example.shakecraft.MainActivity"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+    app:startDestination="@id/homeFragment">
+
     <fragment
         android:id="@+id/bossFragment"
         android:name="com.example.shakecraft.BossFragment"
         android:label="fragment_boss"
-        tools:layout="@layout/fragment_boss" />
+        tools:layout="@layout/fragment_boss" >
+        <action
+            android:id="@+id/action_bossFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
     <fragment
         android:id="@+id/collectFragment"
         android:name="com.example.shakecraft.CollectFragment"
@@ -22,27 +25,33 @@
         tools:layout="@layout/fragment_collect" >
         <action
             android:id="@+id/action_collectFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
     </fragment>
-    <fragment
-        android:id="@+id/inventoryFragment"
-        android:name="com.example.shakecraft.InventoryFragment"
-        android:label="fragment_inventory"
-        tools:layout="@layout/fragment_inventory" />
+
     <fragment
         android:id="@+id/plusFragment"
         android:name="com.example.shakecraft.PlusFragment"
         android:label="fragment_plus"
         tools:layout="@layout/fragment_plus" />
     <fragment
+        android:id="@+id/inventoryFragment"
+        android:name="com.example.shakecraft.InventoryFragment"
+        android:label="fragment_inventory"
+        tools:layout="@layout/fragment_inventory" />
+    <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.shakecraft.HomeFragment"
         android:label="HomeFragment" >
         <action
             android:id="@+id/action_homeFragment_to_collectFragment"
-            app:destination="@id/collectFragment" />
+            app:destination="@id/collectFragment"
+            app:enterAnim="@android:anim/fade_in" />
         <action
             android:id="@+id/action_homeFragment_to_bossFragment"
-            app:destination="@id/bossFragment" />
+            app:destination="@id/bossFragment"
+            app:enterAnim="@android:anim/fade_in" />
     </fragment>
 </navigation>

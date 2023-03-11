@@ -16,6 +16,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.navigation.fragment.findNavController
 import com.example.shakecraft.data.Stub
 import com.example.shakecraft.model.Generator
 import com.example.shakecraft.model.Player
@@ -23,8 +25,7 @@ import kotlin.math.pow
 import kotlin.math.sqrt
 
 
-class CollectFragment(var player: Player) : Fragment() {
-    var stubdata = Stub().load();
+class CollectFragment() : Fragment() {
     private lateinit var sensorManager: SensorManager
     private lateinit var accelerometer: Sensor
     private lateinit var accelerometerEventListener: SensorEventListener
@@ -42,8 +43,15 @@ class CollectFragment(var player: Player) : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        var  player = (activity as MainActivity).currentPlayer
         // Récupérez une référence à la ProgressBar dans la vue
         val view = inflater.inflate(R.layout.fragment_collect, container, false)
+
+
+        val buttonCollect = view.findViewById<TextView>(R.id.backbutton)
+        buttonCollect.setOnClickListener{
+            findNavController().navigate(R.id.action_collectFragment_to_homeFragment)
+        }
 
         progressBar = view.findViewById(R.id.progressBar)
         sensorManager = requireActivity().getSystemService(Context.SENSOR_SERVICE) as SensorManager
