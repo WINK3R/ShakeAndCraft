@@ -27,16 +27,9 @@ La page "Dungeon" est une page de jeu dans laquelle le joueur doit secouer son t
 
 ## :dizzy: Getting Started
 
-Une fois le dépot cloné, vous pouvez lancer le code sur votre téléphone Android et IOS grace a l'outil [Expo](https://docs.expo.dev/get-started/installation/).
+Une fois le dépot cloné, vous pouvez lancer le code sur votre téléphone Android grace a l'outil Android studio ou grace a un émulateur android.
 
-```bash
-npx expo start
-```
-Une fois la commande executée, il vous suffit de scanner le QR à partir de l'application Expo sur android et Caméra pour IOS.</br>
 
-**/!\ Veuillez faire attention à bien etre connecté sur le même réseau (ordinateaur et téléphone).**
-
-![](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 ## :gift: OverView
 
