@@ -39,7 +39,6 @@ class MainActivity : AppCompatActivity() {
         hideSystemUI()
         setContentView(R.layout.activity_main)
 
-
         bottomNav = findViewById(R.id.bottomNavigationView)
         val navController = findNavController(R.id.fragment)
         bottomNav.setupWithNavController(navController)
