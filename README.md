@@ -1,7 +1,7 @@
  
   
 <p align="center">
-  <img src="https://codefirst.iut.uca.fr/git/lucas.delanier/MovieFinder/raw/branch/master/Documentation/banner_shakeandcraft.png  "  />
+  <img src="https://codefirst.iut.uca.fr/git/lucas.delanier/ShakeAndCraft/raw/branch/master/Documentations/banner-shakeandcraft.png"  />
 </p>
 
 ![React Native](https://img.shields.io/badge/react_native-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
