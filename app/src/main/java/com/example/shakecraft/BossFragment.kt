@@ -1,6 +1,4 @@
 package com.example.shakecraft
-
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.ActivityInfo
 import android.hardware.Sensor
@@ -17,10 +15,7 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.navigation.fragment.findNavController
-import com.example.shakecraft.data.Stub
-import com.example.shakecraft.model.Boss
 import com.example.shakecraft.model.Generator
-import com.example.shakecraft.model.Player
 import kotlin.math.pow
 import kotlin.math.sqrt
 
@@ -45,9 +40,8 @@ class BossFragment() : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        var  player = (activity as MainActivity).currentPlayer
+        val player = (activity as MainActivity).currentPlayer
 
-        // Récupérez une référence à la ProgressBar dans la vue
         val view = inflater.inflate(R.layout.fragment_boss, container, false)
         val buttonCollect = view.findViewById<TextView>(R.id.backbutton)
         buttonCollect.setOnClickListener{
@@ -59,9 +53,9 @@ class BossFragment() : Fragment() {
         image = view.findViewById(R.id.imageBoss)
         sensorManager = requireActivity().getSystemService(Context.SENSOR_SERVICE) as SensorManager
         accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
-        var boss = Generator.generateBoss();
-        progressBar.max = boss.maxlife;
-        progressBar.progress = boss.life;
+        var boss = Generator.generateBoss()
+        progressBar.max = boss.maxlife
+        progressBar.progress = boss.life
         image.setImageResource(boss.image)
 
 
@@ -76,11 +70,12 @@ class BossFragment() : Fragment() {
                     event!!.values[0].pow(2) + event.values[1].pow(2) + event.values[2].pow(2)
                 )
                 if(boss.life <= 0){
-                    val item = Generator.generateLootBoss(boss.possibleLoot);
-                    println(item);
-                    player.addItem(item);
-                    boss = Generator.generateBoss();
-                    println(boss);
+                    val item = Generator.generateLootBoss(boss.possibleLoot)
+                    println(item)
+                    player.addItem(item)
+                    player.gainXp(boss.xpReward)
+                    boss = Generator.generateBoss()
+                    println(boss)
                     image.setImageResource(boss.image)
                     val vibrator = context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
                     vibrator.vibrate(100)
@@ -91,14 +86,13 @@ class BossFragment() : Fragment() {
 
                 }
                 if (acceleration > 40) {
-                    // Le téléphone a été secoué, mettre à jour la barre de chargement ici
-                    boss.takeDamage((acceleration/80).toInt());
-                    progressBar.progress = boss.life;
+                    boss.takeDamage((acceleration/80).toInt())
+                    progressBar.progress = boss.life
                 }
             }
         }
 
-        // Enregistrez l'écouteur de capteur d'accéléromètre
+
         sensorManager.registerListener(
             accelerometerEventListener,
             accelerometer,
@@ -106,7 +100,7 @@ class BossFragment() : Fragment() {
         )
 
 
-        // Retournez la vue de fragment
+
         return view
     }
     override fun onActivityCreated(savedInstanceState: Bundle?) {

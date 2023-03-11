@@ -16,11 +16,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
+
 import androidx.navigation.fragment.findNavController
-import com.example.shakecraft.data.Stub
+
 import com.example.shakecraft.model.Generator
-import com.example.shakecraft.model.Player
+
 import kotlin.math.pow
 import kotlin.math.sqrt
 
@@ -43,7 +43,7 @@ class CollectFragment() : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        var  player = (activity as MainActivity).currentPlayer
+        val player = (activity as MainActivity).currentPlayer
         // Récupérez une référence à la ProgressBar dans la vue
         val view = inflater.inflate(R.layout.fragment_collect, container, false)
 
@@ -69,11 +69,12 @@ class CollectFragment() : Fragment() {
                     event!!.values[0].pow(2) + event.values[1].pow(2) + event.values[2].pow(2)
                 )
                 if(progressBar.progress == 100){
-                    val item = Generator.generateLootCollection();
-                    println(item);
+                    val item = Generator.generateLootCollection()
+                    println(item)
 
-                    player.addItem(item);
-                    progressBar.progress = 0;
+                    player.addItem(item)
+                    player.gainXp(item.xpReward)
+                    progressBar.progress = 0
                     val vibrator = context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
                     vibrator.vibrate(100)
 
@@ -87,6 +88,7 @@ class CollectFragment() : Fragment() {
                     maVue.visibility = View.VISIBLE
                     image.setImageResource(item.image)
                     name.text = item.name
+                    xp.text = item.xpReward.toString()
                     maVue.postDelayed({
                         maVue.visibility = View.GONE
 

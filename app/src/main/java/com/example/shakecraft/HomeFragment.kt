@@ -5,20 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+
+import android.widget.ProgressBar
+import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.fragment.findNavController
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [HomeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
+
 class HomeFragment : Fragment() {
 
 
@@ -31,6 +26,8 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val player = (activity as MainActivity).currentPlayer
+
         val view = inflater.inflate(R.layout.fragment_home,container,false)
         val buttonCollect = view.findViewById<ConstraintLayout>(R.id.buttonCollect)
         buttonCollect.setOnClickListener{
@@ -40,6 +37,21 @@ class HomeFragment : Fragment() {
         buttonBoss.setOnClickListener{
             findNavController().navigate(R.id.action_homeFragment_to_bossFragment)
         }
+
+        val pseudo = view.findViewById<TextView>(R.id.pseudoTextView)
+        val progressbar = view.findViewById<ProgressBar>(R.id.levelProgressBar)
+        val level = view.findViewById<TextView>(R.id.levelTextView)
+        val rank = view.findViewById<TextView>(R.id.rankTextView)
+        val maxXp = view.findViewById<TextView>(R.id.maxXpTextView)
+        val xp = view.findViewById<TextView>(R.id.xpTextView)
+        pseudo.text = player.pseudo
+        level.text = player.level.toString()
+        rank.text = player.rank
+        xp.text = player.xp.toString()
+        maxXp.text = (player.level*100).toString()
+        progressbar.progress = player.xp
+        progressbar.max = player.level*100
+
         return view
     }
 
