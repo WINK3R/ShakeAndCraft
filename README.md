@@ -4,31 +4,25 @@
   <img src="https://codefirst.iut.uca.fr/git/lucas.delanier/ShakeAndCraft/raw/branch/master/Documentations/banner-shakeandcraft.png"  />
 </p>
 
-![React Native](https://img.shields.io/badge/react_native-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
-![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
-![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
-![C#](https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=c-sharp&logoColor=white)
-![WebStorm](https://img.shields.io/badge/webstorm-143?style=for-the-badge&logo=webstorm&logoColor=white&color=black)
-![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
-![iOS](https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED.svg?style=for-the-badge&logo=Docker&logoColor=white)
-![Jest](https://img.shields.io/badge/Jest-C21325.svg?style=for-the-badge&logo=Jest&logoColor=white)
-![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
+![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF.svg?style=for-the-badge&logo=Kotlin&logoColor=white)
+![Android Studio](https://img.shields.io/badge/Android%20Studio-3DDC84.svg?style=for-the-badge&logo=Android-Studio&logoColor=white)
+![Android](https://img.shields.io/badge/Android-3DDC84.svg?style=for-the-badge&logo=Android&logoColor=white)
 
-**MovieFinder** est une application mobile qui permet de découvrir des films. Elle propose chaque jour une liste contenant les 20 films les plus tendances du jour. Une fois la liste vidée, vous êtes invités à attendre la fin du décompte, qui est fixé à minuit, afin d'obtenir une nouvelle liste de films journaliers.
+
+**ShakeAndCraft** est un jeu mobile de type RPG dans lequel vous etes invités a secouer votre téléphone pour récuperer des ressources ainsi que combattre des boss surpuissants. Vous y découvrirais également un systeme de craft et d'évenement relié a la météo en temps réel.
 
 ## :floppy_disk: FEATURES
 
-Sur la page principale, vous pouvez swipe les cartes pour passer d'un film à l'autre sans faire d'action sur ceux-ci. Pour les faire disparaître de la pile, vous pouvez utiliser les boutons "Watch Later" et "Favourite", respectivement à gauche et à droite, pour les ajouter à la liste correspondante. Vous pouvez également utiliser le bouton "Supprimer" qui est situé au milieu et qui permet de supprimer le film de la pile sans l'affecter à aucune des deux listes citées précédemment. Une fois la liste vide vous devez attendre jusqu'a la fin du décompte fixé a 00:00 pour avir de nouveaux films.
+Sur la page principale, vous pouvez voir les informations de votre personnages ( pseudo, level, xp, rank) ainsi que des boutons de navigtions vers les pages de jeu.
 
-Les listes "WatchLater" et "Favourite" affichent les informations principales des films présents dans les listes. Pour accéder aux informations complètes, il suffit d'appuyer sur le film pour être redirigé sur la page "Info" correspondant au film selectionné.
+La page "Inventory" vous permet de voir tous les items que vous possédez dans une liste dans laquelle vous pouvez rechercher par le nom un item en particulié.
 
-La page "Info" permet de visualiser toutes les informations d'un film (titre, note moyenne, durée, date de sortie, genres, synopsis, bande annonce, casting, commentaires, films similaires).
+La page "Ancient Forge" affiche les crafts disponibles dans le jeu avec un effet grisé pour les crafts qui ne peuvent pas etre fabriqués.
 
-Deux thèmes différents sont disponibles : sombre et clair. Ils sont choisis en fonction du thème selectionné sur le téléphone de l'utilisateur. (change uniquement la navigationbar pour le moment pour un soucs d'hestétique)
+La page "Pleasent Forest" est une page de jeu dans laquelle le joueur doit secouer son téléphone pour charger une barre dechargement. Une fois celle ci compete, un item est choisi selon sa rareté affiché sur l'écran et est ajouté a l'inventaire du joueur. 
 
-L'API utilisée est : The Movie DataBase (TMDB) API : https://developers.themoviedb.org/3</br>
-Pour afficher nos "Coup de coeur" nous avons développé notre propre API que nous mettrons à jour en fonction de nos propres gouts. disponible ici : https://codefirst.iut.uca.fr/git/lucas.delanier/moviefinder_api
+La page "Dungeon" est une page de jeu dans laquelle le joueur doit secouer son téléphone pour faire déscendre la vie d'un Boss beaucoup plus compliqué que la recolte de ressources. Une fois le boss tué, un item est ajouté a l'inventaire du joueur selon la rareté affiché a l'écran. 
+
 ![](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 ## :dizzy: Getting Started
