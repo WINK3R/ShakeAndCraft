@@ -42,7 +42,6 @@ En cas de problème lors de l'utilisation de l'application, vous pouvez nous con
 
 
 Lucas Delanier : **lucas.delanier@etu.uca.fr** </br>
-Louison Parant : **louison.parant@etu.uca.fr** 
 ![](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 ## ✨ Contributors 
@@ -50,9 +49,7 @@ Louison Parant : **louison.parant@etu.uca.fr**
 <a href = "https://codefirst.iut.uca.fr/git/lucas.delanier">
 <img src ="https://codefirst.iut.uca.fr/git/avatars/6a3835d734392fccff3949f7c82a63b9?size=870" height="50px">
 </a>
-<a href = "https://codefirst.iut.uca.fr/git/louison.parant">
-<img src ="https://codefirst.iut.uca.fr/git/avatars/b337a607f680a2d9af25eb09ea457be9?size=870" height="50px">
-</a>
+
 
 
 
