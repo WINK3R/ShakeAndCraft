@@ -10,6 +10,7 @@
     <color name="blue">#6D8DFC</color>
     <color name="black_800">#1D1C22</color>
     <color name="grey_100">#343339</color>
+    <color name="grey_delimiter">#302F35</color>
     <color name="grey">#2D2C32</color>
     <color name="grey_300">#ADACB2</color>
     <color name="red">#FF3D3D</color>

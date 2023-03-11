@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     private var progressValue = 20
     private var lastShakePosition = 0f
 
+    var currentPlayer = Stub().currentPlayer;
 
     // Function to hide NavigationBar
     @RequiresApi(Build.VERSION_CODES.R)
@@ -52,11 +53,11 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.inventory -> {
-                    loadFragment(InventoryFragment())
+                    loadFragment(InventoryFragment(currentPlayer))
                     true
                 }
                 R.id.plus -> {
-                    loadFragment(CollectFragment())
+                    loadFragment(CollectFragment(currentPlayer))
                     true
                 }
                 else -> false
