@@ -34,7 +34,7 @@ Une fois le dépot cloné, vous pouvez lancer le code sur votre téléphone Andr
 ## :gift: OverView
 
 <p align="center">
-  <img src="https://codefirst.iut.uca.fr/git/lucas.delanier/MovieFinder/raw/branch/master/Documentation/exemplebackground.png"  />
+  <img src="https://codefirst.iut.uca.fr/git/lucas.delanier/ShakeAndCraft/raw/branch/master/Documentations/overview-shakeandcraft.png"  />
 </p>
 
 ## :wrench: SUPPORT
