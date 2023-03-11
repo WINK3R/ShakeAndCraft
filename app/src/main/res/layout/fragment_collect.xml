@@ -228,7 +228,6 @@
             android:layout_margin="5dp"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/log2"
             android:background="@drawable/item_background"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -248,7 +247,6 @@
                 android:id="@+id/nameLoot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Log tree"
                 android:textStyle="bold"
                 android:textSize="15sp"
                 android:textColor="@color/white"></TextView>
@@ -263,7 +261,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     tools:text="10"
-                    android:text="10"
                     android:textColor="@color/grey_300"
                     android:textSize="10sp"></TextView>
                 <TextView

@@ -2,7 +2,6 @@ package com.example.shakecraft
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.Context.SENSOR_SERVICE
 import android.content.pm.ActivityInfo
 import android.hardware.Sensor
 import android.hardware.SensorEvent
@@ -14,17 +13,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AlphaAnimation
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
-import androidx.core.content.ContextCompat.getSystemService
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.shakecraft.data.Stub
-import com.example.shakecraft.model.GeneratorLoot
+import com.example.shakecraft.model.Generator
 import com.example.shakecraft.model.Player
-import com.example.shakecraft.view.adapter.AdapterInventory
 import kotlin.math.pow
 import kotlin.math.sqrt
 
@@ -38,6 +32,8 @@ class CollectFragment(var player: Player) : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
 
 
     }
@@ -65,32 +61,31 @@ class CollectFragment(var player: Player) : Fragment() {
                     event!!.values[0].pow(2) + event.values[1].pow(2) + event.values[2].pow(2)
                 )
                 if(progressBar.progress == 100){
+                    val item = Generator.generateLootCollection();
+                    println(item);
+
+                    player.addItem(item);
+                    progressBar.progress = 0;
                     val vibrator = context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
                     vibrator.vibrate(100)
 
 
 
-                    val item = GeneratorLoot.generateLootCollection();
-                    println(item);
 
                     val maVue = view.findViewById<View>(R.id.toast)
                     val image = maVue.findViewById<ImageView>(R.id.imageViewLoot)
                     val name = maVue.findViewById<TextView>(R.id.nameLoot)
                     val xp = maVue.findViewById<TextView>(R.id.xpRewarded)
                     maVue.visibility = View.VISIBLE
-                    val fadeIn = AlphaAnimation(0f, 1f)
-                    fadeIn.duration = 200
-                    maVue.startAnimation(fadeIn)
+                    image.setImageResource(item.image)
+                    name.text = item.name
                     maVue.postDelayed({
                         maVue.visibility = View.GONE
-                        image.setImageResource(item.image)
-                        name.text = item.name
 
                     }, 3000)
 
 
-                    player.addItem(item);
-                    progressBar.progress = 0;
+
                 }
                 if (acceleration > 40) {
                     // Le téléphone a été secoué, mettre à jour la barre de chargement ici
