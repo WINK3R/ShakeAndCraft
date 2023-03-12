@@ -7,18 +7,15 @@ import androidx.annotation.RequiresApi
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
-
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
-
-import com.example.shakecraft.data.Stub
-
+import com.example.shakecraft.model.Player
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
 
-    var currentPlayer = Stub().currentPlayer
+    var currentPlayer = Player("Winker",0)
 
     @RequiresApi(Build.VERSION_CODES.R)
     private fun hideSystemUI() {

@@ -15,4 +15,6 @@
     <color name="grey_300">#ADACB2</color>
     <color name="red">#FF3D3D</color>
     <color name="yellow">#FADB68</color>
+    <color name="grey_400">#999A9F</color>
+    <color name="grey_500">#3A393F</color>
 </resources>

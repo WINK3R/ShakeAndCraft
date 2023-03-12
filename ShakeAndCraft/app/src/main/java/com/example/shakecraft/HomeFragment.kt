@@ -22,6 +22,7 @@ class HomeFragment : Fragment() {
     private lateinit var xp : TextView
     private lateinit var buttonCollect : ConstraintLayout
     private lateinit var buttonBoss : ConstraintLayout
+    private lateinit var buttonForge : ConstraintLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,6 +54,10 @@ class HomeFragment : Fragment() {
         buttonBoss = view.findViewById(R.id.buttonBoss)
         buttonBoss.setOnClickListener{
             findNavController().navigate(R.id.action_homeFragment_to_bossFragment, null, NavOptions.Builder().setPopUpTo(R.id.homeFragment, false).build())
+        }
+        buttonForge = view.findViewById(R.id.buttonForge)
+        buttonForge.setOnClickListener{
+            findNavController().navigate(R.id.action_homeFragment_to_forgeFragment, null, NavOptions.Builder().setPopUpTo(R.id.homeFragment, false).build())
         }
         pseudo.text = currentPlayer.pseudo
         level.text = currentPlayer.level.toString()

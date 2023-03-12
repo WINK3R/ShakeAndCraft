@@ -63,6 +63,29 @@ class Player(val pseudo: String, var xp: Int = 0) {
         items.remove(item)
     }
 
+    fun hasItem(item: Item) : Boolean{
+        for (playeritem in items){
+            if(playeritem.name == item.name && playeritem.stack >= item.stack){
+                return true
+            }
+        }
+        return false
+    }
 
+    fun craft(recipe: Recipe) : Boolean{
+        for (ingredient in recipe.ingredients) {
+            val searchedItem = items.find { it.name == recipe.item.name }
+            if(searchedItem != null) {
+                searchedItem.stack -= recipe.item.stack
+                if (searchedItem.stack == 0){
+                    items.remove(searchedItem)
+                }
+                return true
+            }
+            else
+                return false
+        }
+        return false
+    }
 
 }

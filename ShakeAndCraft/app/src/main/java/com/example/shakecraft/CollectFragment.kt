@@ -33,7 +33,7 @@ class CollectFragment() : Fragment() {
     private lateinit var accelerometer: Sensor
     private lateinit var accelerometerEventListener: SensorEventListener
     private lateinit var progressBar: ProgressBar
-    private lateinit var buttonCollect: TextView
+    private lateinit var buttonBack: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,8 +61,8 @@ class CollectFragment() : Fragment() {
     }
     private fun initializeViews(view: View) {
         progressBar = view.findViewById(R.id.progressBar)
-        buttonCollect = view.findViewById<TextView>(R.id.backbutton)
-        buttonCollect.setOnClickListener{
+        buttonBack = view.findViewById<TextView>(R.id.backbutton)
+        buttonBack.setOnClickListener{
             findNavController().navigate(R.id.action_collectFragment_to_homeFragment)
         }
     }
