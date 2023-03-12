@@ -42,12 +42,16 @@ En cas de problème lors de l'utilisation de l'application, vous pouvez nous con
 
 
 Lucas Delanier : **lucas.delanier@etu.uca.fr** </br>
+Théo Renaud : **Theo.RENAUD@etu.uca.fr**
 ![](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 ## ✨ Contributors 
 
 <a href = "https://codefirst.iut.uca.fr/git/lucas.delanier">
 <img src ="https://codefirst.iut.uca.fr/git/avatars/6a3835d734392fccff3949f7c82a63b9?size=870" height="50px">
+</a>
+<a href = "https://codefirst.iut.uca.fr/git/theo.renaud">
+<img src ="https://codefirst.iut.uca.fr/git/avatars/af9299d66a9a0bf7be17f8dc156f67b9?size=870" height="50px">
 </a>
 
 
