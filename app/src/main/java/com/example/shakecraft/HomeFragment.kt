@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 
 
@@ -31,11 +32,11 @@ class HomeFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_home,container,false)
         val buttonCollect = view.findViewById<ConstraintLayout>(R.id.buttonCollect)
         buttonCollect.setOnClickListener{
-            findNavController().navigate(R.id.action_homeFragment_to_collectFragment)
+            findNavController().navigate(R.id.action_homeFragment_to_collectFragment, null, NavOptions.Builder().setPopUpTo(R.id.homeFragment, false).build())
         }
         val buttonBoss = view.findViewById<ConstraintLayout>(R.id.buttonBoss)
         buttonBoss.setOnClickListener{
-            findNavController().navigate(R.id.action_homeFragment_to_bossFragment)
+            findNavController().navigate(R.id.action_homeFragment_to_bossFragment, null, NavOptions.Builder().setPopUpTo(R.id.homeFragment, false).build())
         }
 
         val pseudo = view.findViewById<TextView>(R.id.pseudoTextView)

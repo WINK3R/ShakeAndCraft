@@ -11,11 +11,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.ScaleAnimation
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.shakecraft.model.Generator
+import com.example.shakecraft.view.adapter.AdapterBossLoot
 import kotlin.math.pow
 import kotlin.math.sqrt
 
@@ -47,16 +52,44 @@ class BossFragment() : Fragment() {
         buttonCollect.setOnClickListener{
             findNavController().navigate(R.id.action_bossFragment_to_homeFragment)
         }
+        val imageView = view.findViewById<ImageView>(R.id.imageBoss)
+        imageView.scaleX = 1.2f
+        imageView.scaleY = 1.2f
+
+// Créez une animation qui modifie la propriété scaleX et scaleY de l'image
+        val scaleAnimation = ScaleAnimation(
+            1.2f, // de 2.0 à 1.0
+            1.0f,
+            1.2f,
+            1.0f,
+            Animation.RELATIVE_TO_SELF,
+            0.5f,
+            Animation.RELATIVE_TO_SELF,
+            0.5f
+        )
+
+        scaleAnimation.duration = 1000 // dure 1 seconde
+        scaleAnimation.repeatCount = Animation.INFINITE // répéter indéfiniment
+        scaleAnimation.repeatMode = Animation.REVERSE // inverser la direction de l'animation
+
+// Appliquez l'animation à l'image
+        imageView.startAnimation(scaleAnimation)
 
 
         progressBar = view.findViewById(R.id.progressBar)
-        image = view.findViewById(R.id.imageBoss)
         sensorManager = requireActivity().getSystemService(Context.SENSOR_SERVICE) as SensorManager
         accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
         var boss = Generator.generateBoss()
         progressBar.max = boss.maxlife
         progressBar.progress = boss.life
-        image.setImageResource(boss.image)
+        imageView.setImageResource(boss.image)
+
+
+        val recyclerView: RecyclerView = view.findViewById(R.id.recyclerviewBossLoot)
+        with(recyclerView) {
+            layoutManager = LinearLayoutManager(view.context)
+            adapter = AdapterBossLoot(boss.possibleLoot)
+        }
 
 
         // Créez un écouteur de capteur d'accéléromètre pour écouter les secousses
@@ -76,9 +109,29 @@ class BossFragment() : Fragment() {
                     player.gainXp(boss.xpReward)
                     boss = Generator.generateBoss()
                     println(boss)
-                    image.setImageResource(boss.image)
+                    imageView.setImageResource(boss.image)
                     val vibrator = context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
                     vibrator.vibrate(100)
+                    progressBar.max = boss.maxlife
+                    with(recyclerView) {
+                        layoutManager = LinearLayoutManager(view.context)
+                        adapter = AdapterBossLoot(boss.possibleLoot)
+                    }
+                    val maVue = view.findViewById<View>(R.id.toast)
+                    val image = maVue.findViewById<ImageView>(R.id.imageViewLoot)
+                    val name = maVue.findViewById<TextView>(R.id.nameLoot)
+                    val xp = maVue.findViewById<TextView>(R.id.xpRewarded)
+                    maVue.visibility = View.VISIBLE
+                    image.setImageResource(item.image)
+                    name.text = item.name
+                    xp.text = item.xpReward.toString()
+                    maVue.postDelayed({
+                        maVue.visibility = View.GONE
+
+                    }, 3000)
+
+                    // Définissez la propriété scaleX et scaleY de l'image sur 0.5f
+
 
 
 
@@ -88,6 +141,7 @@ class BossFragment() : Fragment() {
                 if (acceleration > 40) {
                     boss.takeDamage((acceleration/80).toInt())
                     progressBar.progress = boss.life
+
                 }
             }
         }
