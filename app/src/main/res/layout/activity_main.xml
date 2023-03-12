@@ -19,6 +19,7 @@
         app:menu="@menu/nav_menu"
         app:itemIconTint="@drawable/botom_nav_colors"
         app:itemTextColor="@drawable/botom_nav_colors"
+
         />
 
     <fragment

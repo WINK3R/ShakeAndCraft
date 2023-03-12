@@ -107,6 +107,18 @@ class BossFragment() : Fragment() {
                     println(item)
                     player.addItem(item)
                     player.gainXp(boss.xpReward)
+                    val maVue = view.findViewById<View>(R.id.toast)
+                    val image = maVue.findViewById<ImageView>(R.id.imageViewLoot)
+                    val name = maVue.findViewById<TextView>(R.id.nameLoot)
+                    val xp = maVue.findViewById<TextView>(R.id.xpRewarded)
+                    maVue.visibility = View.VISIBLE
+                    image.setImageResource(item.image)
+                    name.text = item.name
+                    xp.text = boss.xpReward.toString()
+                    maVue.postDelayed({
+                        maVue.visibility = View.GONE
+
+                    }, 3000)
                     boss = Generator.generateBoss()
                     println(boss)
                     imageView.setImageResource(boss.image)
@@ -117,18 +129,7 @@ class BossFragment() : Fragment() {
                         layoutManager = LinearLayoutManager(view.context)
                         adapter = AdapterBossLoot(boss.possibleLoot)
                     }
-                    val maVue = view.findViewById<View>(R.id.toast)
-                    val image = maVue.findViewById<ImageView>(R.id.imageViewLoot)
-                    val name = maVue.findViewById<TextView>(R.id.nameLoot)
-                    val xp = maVue.findViewById<TextView>(R.id.xpRewarded)
-                    maVue.visibility = View.VISIBLE
-                    image.setImageResource(item.image)
-                    name.text = item.name
-                    xp.text = item.xpReward.toString()
-                    maVue.postDelayed({
-                        maVue.visibility = View.GONE
 
-                    }, 3000)
 
                     // Définissez la propriété scaleX et scaleY de l'image sur 0.5f
 
@@ -143,6 +144,8 @@ class BossFragment() : Fragment() {
                     progressBar.progress = boss.life
 
                 }
+
+
             }
         }
 
