@@ -51,7 +51,7 @@ Théo Renaud : **Theo.RENAUD@etu.uca.fr**
 <img src ="https://codefirst.iut.uca.fr/git/avatars/6a3835d734392fccff3949f7c82a63b9?size=870" height="50px">
 </a>
 <a href = "https://codefirst.iut.uca.fr/git/theo.renaud">
-<img src ="https://codefirst.iut.uca.fr/git/avatars/6a3835d734392fccff3949f7c82a63b9?size=870" height="50px">
+<img src ="https://codefirst.iut.uca.fr/git/avatars/af9299d66a9a0bf7be17f8dc156f67b9?size=870" height="50px">
 </a>
 
 
