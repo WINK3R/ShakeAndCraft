@@ -3,6 +3,7 @@ package com.example.shakecraft
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
@@ -41,6 +42,15 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.fragment)
         bottomNav.setupWithNavController(navController)
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        // Masquer la barre de navigation et la barre d'état
+        window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                or View.SYSTEM_UI_FLAG_FULLSCREEN
+                or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY)
     }
 
 
