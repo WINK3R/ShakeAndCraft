@@ -125,6 +125,7 @@ class BossFragment() : Fragment() {
                     val vibrator = context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
                     vibrator.vibrate(100)
                     progressBar.max = boss.maxlife
+                    progressBar.progress = boss.life
                     with(recyclerView) {
                         layoutManager = LinearLayoutManager(view.context)
                         adapter = AdapterBossLoot(boss.possibleLoot)
