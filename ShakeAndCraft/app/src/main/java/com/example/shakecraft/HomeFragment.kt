@@ -5,55 +5,62 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
-
-
+import com.example.shakecraft.model.Player
 
 
 class HomeFragment : Fragment() {
-
+    private lateinit var pseudo : TextView
+    private lateinit var progressbar : ProgressBar
+    private lateinit var level : TextView
+    private lateinit var rank : TextView
+    private lateinit var maxXp : TextView
+    private lateinit var xp : TextView
+    private lateinit var buttonCollect : ConstraintLayout
+    private lateinit var buttonBoss : ConstraintLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val player = (activity as MainActivity).currentPlayer
-
+        val currentPlayer = (activity as MainActivity).currentPlayer
         val view = inflater.inflate(R.layout.fragment_home,container,false)
-        val buttonCollect = view.findViewById<ConstraintLayout>(R.id.buttonCollect)
+
+        // Initialize views
+        initializeViews(view, currentPlayer)
+
+        return view
+    }
+    private fun initializeViews(view: View, currentPlayer : Player) {
+        pseudo = view.findViewById(R.id.pseudoTextView)
+        progressbar = view.findViewById(R.id.levelProgressBar)
+        level = view.findViewById(R.id.levelTextView)
+        rank = view.findViewById(R.id.rankTextView)
+        maxXp = view.findViewById(R.id.maxXpTextView)
+        xp = view.findViewById(R.id.xpTextView)
+        buttonCollect = view.findViewById(R.id.buttonCollect)
         buttonCollect.setOnClickListener{
             findNavController().navigate(R.id.action_homeFragment_to_collectFragment, null, NavOptions.Builder().setPopUpTo(R.id.homeFragment, false).build())
         }
-        val buttonBoss = view.findViewById<ConstraintLayout>(R.id.buttonBoss)
+        buttonBoss = view.findViewById(R.id.buttonBoss)
         buttonBoss.setOnClickListener{
             findNavController().navigate(R.id.action_homeFragment_to_bossFragment, null, NavOptions.Builder().setPopUpTo(R.id.homeFragment, false).build())
         }
-
-        val pseudo = view.findViewById<TextView>(R.id.pseudoTextView)
-        val progressbar = view.findViewById<ProgressBar>(R.id.levelProgressBar)
-        val level = view.findViewById<TextView>(R.id.levelTextView)
-        val rank = view.findViewById<TextView>(R.id.rankTextView)
-        val maxXp = view.findViewById<TextView>(R.id.maxXpTextView)
-        val xp = view.findViewById<TextView>(R.id.xpTextView)
-        pseudo.text = player.pseudo
-        level.text = player.level.toString()
-        rank.text = player.rank
-        xp.text = player.xp.toString()
-        maxXp.text = (player.level*100).toString()
-        progressbar.progress = player.xp
-        progressbar.max = player.level*100
-
-        return view
+        pseudo.text = currentPlayer.pseudo
+        level.text = currentPlayer.level.toString()
+        rank.text = currentPlayer.rank
+        xp.text = currentPlayer.xp.toString()
+        maxXp.text = (currentPlayer.level*100).toString()
+        progressbar.progress = currentPlayer.xp
+        progressbar.max = currentPlayer.level*100
     }
 
 
