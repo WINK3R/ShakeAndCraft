@@ -1,7 +1,7 @@
  
   
 <p align="center">
-  <img src="https://codefirst.iut.uca.fr/git/lucas.delanier/ShakeAndCraft/raw/branch/master/Documentations/banner-shakeandcraft.png"  />
+  <img src="https://codefirst.iut.uca.fr/git/lucas.delanier/ShakeAndCraft/raw/branch/master/Documentations/banner.png"  />
 </p>
 
 ![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF.svg?style=for-the-badge&logo=Kotlin&logoColor=white)
