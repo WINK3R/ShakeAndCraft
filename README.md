@@ -7,6 +7,12 @@
 ![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF.svg?style=for-the-badge&logo=Kotlin&logoColor=white)
 ![Android Studio](https://img.shields.io/badge/Android%20Studio-3DDC84.svg?style=for-the-badge&logo=Android-Studio&logoColor=white)
 ![Android](https://img.shields.io/badge/Android-3DDC84.svg?style=for-the-badge&logo=Android&logoColor=white)
+[![Duplicated Lines (%)](https://codefirst.iut.uca.fr/sonar/api/project_badges/measure?project=ShakeAndCraft&metric=duplicated_lines_density&token=bb717076471bf71ba25b805c0b6ad18e4ae5c047)](https://codefirst.iut.uca.fr/sonar/dashboard?id=ShakeAndCraft)
+[![Maintainability Rating](https://codefirst.iut.uca.fr/sonar/api/project_badges/measure?project=ShakeAndCraft&metric=sqale_rating&token=bb717076471bf71ba25b805c0b6ad18e4ae5c047)](https://codefirst.iut.uca.fr/sonar/dashboard?id=ShakeAndCraft)
+[![Quality Gate Status](https://codefirst.iut.uca.fr/sonar/api/project_badges/measure?project=ShakeAndCraft&metric=alert_status&token=bb717076471bf71ba25b805c0b6ad18e4ae5c047)](https://codefirst.iut.uca.fr/sonar/dashboard?id=ShakeAndCraft)
+[![Security Rating](https://codefirst.iut.uca.fr/sonar/api/project_badges/measure?project=ShakeAndCraft&metric=security_rating&token=bb717076471bf71ba25b805c0b6ad18e4ae5c047)](https://codefirst.iut.uca.fr/sonar/dashboard?id=ShakeAndCraft)
+[![Vulnerabilities](https://codefirst.iut.uca.fr/sonar/api/project_badges/measure?project=ShakeAndCraft&metric=vulnerabilities&token=bb717076471bf71ba25b805c0b6ad18e4ae5c047)](https://codefirst.iut.uca.fr/sonar/dashboard?id=ShakeAndCraft)
+[![Technical Debt](https://codefirst.iut.uca.fr/sonar/api/project_badges/measure?project=ShakeAndCraft&metric=sqale_index&token=bb717076471bf71ba25b805c0b6ad18e4ae5c047)](https://codefirst.iut.uca.fr/sonar/dashboard?id=ShakeAndCraft)
 
 
 **ShakeAndCraft** est un jeu mobile de type RPG dans lequel vous etes invités a secouer votre téléphone pour récuperer des ressources ainsi que combattre des boss surpuissants. Vous y découvrirais également un systeme de craft et d'évenement relié a la météo en temps réel.
