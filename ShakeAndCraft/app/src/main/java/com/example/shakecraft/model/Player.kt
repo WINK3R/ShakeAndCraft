@@ -35,10 +35,10 @@ class Player(val pseudo: String, var xp: Int = 0) {
         else if(this.level<=26){
             this.rank = "Legend"
         }
-        else if(this.level<=26){
+        else if(this.level<=29){
             this.rank = "Invincible"
         }
-        else if(this.level<=29){
+        else if(this.level<=32){
             this.rank = "Divine"
         }
     }
