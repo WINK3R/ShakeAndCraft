@@ -16,7 +16,7 @@ steps:
     commands:
       - curl -sSLo /tmp/sonar-scanner-cli.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.5.0.2216-linux.zip
       - unzip -q /tmp/sonar-scanner-cli.zip -d /opt/sonar-scanner
-      - export PATH=$PATH
+      - export PATH=$PATH:/opt/sonar-scanner/sonar-scanner-4.5.0.2216-linux/bin
   - name: sonarqube
     image: openjdk:latest
     environment:
