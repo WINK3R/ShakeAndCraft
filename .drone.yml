@@ -17,8 +17,8 @@ steps:
         - wget -q "https://dl.google.com/android/repository/commandlinetools-linux-7302050_latest.zip" -O android-sdk.zip
         - unzip -q android-sdk.zip -d $HOME/android-sdk
         - echo 'export ANDROID_SDK_ROOT=$HOME/android-sdk' >> $HOME/.bashrc
-        - echo 'export PATH="$HOME/android-sdk/cmdline-tools/tools/bin:$PATH"' >> $HOME/.bashrc
-        - source $HOME/.bashrc
+        - echo 'export PATH=$HOME/android-sdk/cmdline-tools/tools/bin:$PATH' >> $HOME/.bashrc
+        - source $HOME/.bashrc  
         - yes | $HOME/android-sdk/cmdline-tools/tools/bin/sdkmanager --licenses
         - $HOME/android-sdk/cmdline-tools/tools/bin/sdkmanager "platform-tools" "platforms;android-30"
         - cd ShakeAndCraft
