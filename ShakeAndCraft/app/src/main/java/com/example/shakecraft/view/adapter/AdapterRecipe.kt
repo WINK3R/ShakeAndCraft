@@ -37,8 +37,8 @@ class AdapterRecipe(
             }
         }
         fun bind(recipe: Recipe) {
-            textView.text = recipe.item.name
-            imageView.setImageResource(recipe.item.image)
+            textView.text = recipe.item.type.name
+            imageView.setImageResource(recipe.item.type.image)
         }
     }
 

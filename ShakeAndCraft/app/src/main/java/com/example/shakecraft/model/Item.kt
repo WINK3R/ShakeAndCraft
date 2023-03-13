@@ -5,11 +5,8 @@ import android.os.Parcelable
 
 
 class Item(
-    var name: String,
-    var rarity: Int = 1,
+    val type: ItemType,
     var stack: Int = 1,
-    var image: Int,
-    var xpReward: Int = 0,
 ) : Parcelable {
 
 
@@ -18,20 +15,20 @@ class Item(
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeString(name)
-        parcel.writeInt(rarity)
+        parcel.writeString(type.name)
+        parcel.writeInt(type.rarity)
+        parcel.writeInt(type.image)
+        parcel.writeInt(type.xpReward)
         parcel.writeInt(stack)
-        parcel.writeInt(image)
-        parcel.writeInt(xpReward)
     }
 
     companion object CREATOR : Parcelable.Creator<Item> {
         override fun createFromParcel(parcel: Parcel): Item {
+
             return Item(
-                parcel.readString()!!,
-                parcel.readInt(),
-                parcel.readInt(),
-                parcel.readInt(),
+                ItemType(parcel.readString()!!,parcel.readInt(),
+                    parcel.readInt(),
+                    parcel.readInt(),),
                 parcel.readInt()
             )
         }

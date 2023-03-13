@@ -72,8 +72,8 @@ class CraftFragment : Fragment() {
         }
         image = view.findViewById(R.id.item_image)
         name = view.findViewById(R.id.item_name)
-        image.setImageResource(recipe.item.image)
-        name.text = recipe.item.name
+        image.setImageResource(recipe.item.type.image)
+        name.text = recipe.item.type.name
         buttonForge.isEnabled = RecipeManager.isCraftable(recipe,currentPlayer)
         numberCraftable.text = RecipeManager.HowManyCraftable(recipe,currentPlayer).toString()
 

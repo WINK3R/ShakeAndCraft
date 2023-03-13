@@ -1,6 +1,6 @@
 package com.example.shakecraft.data
 
-import com.example.shakecraft.R
+import com.example.shakecraft.model.itemManager.Companion.ITEMS
 import com.example.shakecraft.model.Item
 import com.example.shakecraft.model.Player
 
@@ -8,9 +8,9 @@ import com.example.shakecraft.model.Player
 class Stub {
 
     fun load() : Player{
-        var currentPlayer : Player = Player("Winker",0)
-        val items : MutableList<Item> = mutableListOf<Item>()
-        items.add(Item(name = "Beech Log", rarity = 1, stack = 30,  R.drawable.log2, xpReward = 10 ))
+        val currentPlayer = Player("Winker",0)
+        val items : MutableList<Item> = mutableListOf()
+        items.add(Item(type = ITEMS.BEECH_LOG.itemtype, stack = 30))
 
         currentPlayer.items = items
         return currentPlayer

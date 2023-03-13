@@ -115,8 +115,8 @@ class BossFragment() : Fragment() {
         val lootName = toastView.findViewById<TextView>(R.id.nameLoot)
         val xpReward = toastView.findViewById<TextView>(R.id.xpRewarded)
         toastView.visibility = View.VISIBLE
-        lootImage.setImageResource(item.image)
-        lootName.text = item.name
+        lootImage.setImageResource(item.type.image)
+        lootName.text = item.type.name
         xpReward.text = boss.xpReward.toString()
         toastView.postDelayed({
             toastView.visibility = View.GONE

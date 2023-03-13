@@ -27,9 +27,9 @@ class AdapterBossLoot(private val possibleLoot: List<Pair<Item, Double>>) : Recy
             imageView = view.findViewById(R.id.item_image)
         }
         fun bind(item: Pair<Item, Double>) {
-            textView.text = item.first.name
-            textViewDropRate.text = (item.second*100).toString() + "%"
-            imageView.setImageResource(item.first.image)
+            textView.text = item.first.type.name
+            textViewDropRate.text = (item.second*100).toString()
+            imageView.setImageResource(item.first.type.image)
         }
     }
 

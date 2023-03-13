@@ -27,9 +27,9 @@ class AdapterInventory(private val inventory: List<Item>) : RecyclerView.Adapter
             imageView = view.findViewById(R.id.item_image)
         }
         fun bind(item: Item) {
-            textView.text = item.name
+            textView.text = item.type.name
             textViewNumber.text = item.stack.toString()
-            imageView.setImageResource(item.image)
+            imageView.setImageResource(item.type.image)
         }
     }
 

@@ -76,9 +76,9 @@ class CollectFragment() : Fragment() {
         val name = maVue.findViewById<TextView>(R.id.nameLoot)
         val xp = maVue.findViewById<TextView>(R.id.xpRewarded)
         maVue.visibility = View.VISIBLE
-        image.setImageResource(item.image)
-        name.text = item.name
-        xp.text = item.xpReward.toString()
+        image.setImageResource(item.type.image)
+        name.text = item.type.name
+        xp.text = item.type.xpReward.toString()
         maVue.postDelayed({
             maVue.visibility = View.GONE
 
@@ -102,7 +102,7 @@ class CollectFragment() : Fragment() {
                     // Generate a resource item and XP reward
                     val item = Generator.generateLootCollection()
                     currentPlayer.addItem(item)
-                    currentPlayer.gainXp(item.xpReward)
+                    currentPlayer.gainXp(item.type.xpReward)
 
                     //reset to 0 the progress bar
                     progressBar.progress = 0

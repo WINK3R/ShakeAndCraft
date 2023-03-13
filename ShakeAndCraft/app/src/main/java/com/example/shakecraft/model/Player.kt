@@ -43,13 +43,13 @@ class Player(val pseudo: String, var xp: Int = 0) {
         }
     }
     fun addItem(item: Item) {
-        val findItem = items.find { it.name == item.name }
+        val findItem = items.find { it.type.name == item.type.name }
 
         if(findItem!= null){
             println("findItem n: "+findItem.stack+" item nb:"+item.stack)
             findItem.stack += item.stack
         }
-        else{items.add( Item(item.name, item.rarity, item.stack, item.image, item.xpReward))}
+        else{items.add(Item(type = item.type, stack = item.stack))}
     }
 
     fun gainXp(xp: Int) {
@@ -61,13 +61,10 @@ class Player(val pseudo: String, var xp: Int = 0) {
         }
     }
 
-    fun removeItem(item: Item) {
-        items.remove(item)
-    }
 
     fun hasItem(item: Item) : Boolean{
         for (playeritem in items){
-            if(playeritem.name == item.name && playeritem.stack >= item.stack){
+            if(playeritem.type.name == item.type.name && playeritem.stack >= item.stack){
                 return true
             }
         }
@@ -77,7 +74,7 @@ class Player(val pseudo: String, var xp: Int = 0) {
     fun craft(recipe: Recipe) : Boolean{
         println("test")
         for (ingredient in recipe.ingredients) {
-            val searchedItem = items.find { it.name == ingredient.name }
+            val searchedItem = items.find { it.type.name == ingredient.type.name }
             if(searchedItem != null) {
                 searchedItem.stack -= ingredient.stack
                 if (searchedItem.stack == 0){
