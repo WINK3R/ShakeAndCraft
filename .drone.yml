@@ -8,13 +8,13 @@ trigger:
 
 steps:
     - name: build
-        image: gradle:jdk11
-        commands:
-            - gradle build
+    image: gradle:jdk11
+    commands:
+        - gradle build
     - name: sonarqube
-        image: sonarsource/sonar-scanner-cli:4.5
-        environment:
-            - SONAR_HOST_URL=https://your-sonarqube-url.com
-            - SONAR_LOGIN=${SONAR_TOKEN}
+    image: sonarsource/sonar-scanner-cli:4.5
+    environment:
+        - SONAR_HOST_URL=https://your-sonarqube-url.com
+        - SONAR_LOGIN=${SONAR_TOKEN}
         commands:
             - sonar-scanner
