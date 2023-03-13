@@ -10,6 +10,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.shakecraft.data.Stub
 import com.example.shakecraft.model.Player
 import com.example.shakecraft.model.Recipe
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -17,7 +18,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 class MainActivity : AppCompatActivity() {
 
 
-    var currentPlayer = Player("Winker",0)
+    var currentPlayer = Stub().load()
+
+
     @RequiresApi(Build.VERSION_CODES.R)
     private fun hideSystemUI() {
         WindowCompat.setDecorFitsSystemWindows(window, false)

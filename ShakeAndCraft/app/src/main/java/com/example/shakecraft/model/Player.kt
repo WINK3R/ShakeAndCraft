@@ -3,7 +3,7 @@ package com.example.shakecraft.model
 class Player(val pseudo: String, var xp: Int = 0) {
     var level: Int = 1
 
-    val items: MutableList<Item> = mutableListOf()
+    var items: MutableList<Item> = mutableListOf()
     var rank: String = "Beginner"
 
 

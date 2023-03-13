@@ -8,7 +8,7 @@ class RecipeManager {
 
     companion object {
 
-        var recipeListObjects : List<Recipe> = listOf(
+        val recipeListObjects : List<Recipe> = listOf(
             Recipe(
                 Item("Wooden Stick", image = R.drawable.wooden_stick, stack = 1),listOf(
                     Item("Wooden Plank", image = R.drawable.wooden_plank, stack = 2)
@@ -24,7 +24,7 @@ class RecipeManager {
                 ), "Objects"),
 
         )
-        var recipeListTools : List<Recipe> = listOf(
+        val recipeListTools : List<Recipe> = listOf(
 
             Recipe(
                 Item("Bronze Sword", image = R.drawable.bronze_sword, stack = 1),listOf(
@@ -45,7 +45,7 @@ class RecipeManager {
 
                     ), "Tools"),
         )
-        var recipeListBlacksmithing : List<Recipe> = listOf(
+        val recipeListBlacksmithing : List<Recipe> = listOf(
 
             Recipe(
                 Item("Bronze Ingot", image = R.drawable.bronze_ingot, stack = 1),listOf(
