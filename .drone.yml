@@ -1,21 +1,20 @@
 kind: pipeline
-type: docker
+ttype: docker
 name: ShakeAndCraft
 
 trigger:
-  event:
-    - push
+    event:
+        - push
 
 steps:
-  - name: build
-    image: gradle:jdk11
-    commands:
-      - gradle build
-
-  - name: sonarqube
-    image: sonarsource/sonar-scanner-cli:4.5
-    environment:
-      - SONAR_HOST_URL=https://your-sonarqube-url.com
-      - SONAR_LOGIN=${SONAR_TOKEN}
-    commands:
-      - sonar-scanner
+    - name: build
+      image: gradle:jdk11
+      commands:
+        - gradle build
+    - name: sonarqube
+      image: sonarsource/sonar-scanner-cli:4.5
+      environment:
+        - SONAR_HOST_URL=https://your-sonarqube-url.com
+        - SONAR_LOGIN=${SONAR_TOKEN}
+      commands:
+        - sonar-scanner 
