@@ -1,0 +1,7 @@
+kind: pipeline
+ttype: docker
+name: ShakeAndCraft
+
+trigger:
+    event:
+        - push
