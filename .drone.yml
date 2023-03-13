@@ -26,4 +26,5 @@ steps:
     settings:
       sources: ./ShakeAndCraft/
     commands:
+      - export PATH=$PATH:/opt/sonar-scanner/sonar-scanner-4.5.0.2216-linux/bin
       - sonar-scanner 
