@@ -1,5 +1,6 @@
 package com.example.shakecraft.view.adapter
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,9 +35,13 @@ class AdapterMaterials(private val materials: List<Item>, val currentplayer: Pla
             textView.text = item.type.name
             val itemSearch = currentplayer.items.find { it.type.name == item.type.name }
             textViewNumberNeeded.text = item.stack.toString()
-            textViewNumberPlayer.text = if (itemSearch != null) itemSearch.stack.toString() else  "0"
-
+            textViewNumberPlayer.text = itemSearch?.stack?.toString() ?: "0"
             imageView.setImageResource(item.type.image)
+            if (itemSearch != null) {
+                if(item.stack > itemSearch.stack) textViewNumberPlayer.setTextColor(Color.RED) else textViewNumberPlayer.setTextColor(Color.WHITE)
+
+            }
+            else textViewNumberPlayer.setTextColor(Color.RED)
         }
     }
 

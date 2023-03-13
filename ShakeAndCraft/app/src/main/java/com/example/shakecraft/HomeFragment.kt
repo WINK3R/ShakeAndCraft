@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -23,6 +24,7 @@ class HomeFragment : Fragment() {
     private lateinit var buttonCollect : ConstraintLayout
     private lateinit var buttonBoss : ConstraintLayout
     private lateinit var buttonForge : ConstraintLayout
+    private lateinit var playermage : ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +49,7 @@ class HomeFragment : Fragment() {
         rank = view.findViewById(R.id.rankTextView)
         maxXp = view.findViewById(R.id.maxXpTextView)
         xp = view.findViewById(R.id.xpTextView)
+        playermage = view.findViewById(R.id.playerImage)
         buttonCollect = view.findViewById(R.id.buttonCollect)
         buttonCollect.setOnClickListener{
             findNavController().navigate(R.id.action_homeFragment_to_collectFragment, null, NavOptions.Builder().setPopUpTo(R.id.homeFragment, false).build())
@@ -66,6 +69,7 @@ class HomeFragment : Fragment() {
         maxXp.text = (currentPlayer.level*100).toString()
         progressbar.progress = currentPlayer.xp
         progressbar.max = currentPlayer.level*100
+        playermage.setImageResource(currentPlayer.image)
     }
 
 

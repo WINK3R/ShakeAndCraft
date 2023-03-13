@@ -11,6 +11,7 @@ class Stub {
         val currentPlayer = Player("Winker",0)
         val items : MutableList<Item> = mutableListOf()
         items.add(Item(type = ITEMS.BEECH_LOG.itemtype, stack = 30))
+        items.add(Item(type = ITEMS.BRONZE_INGOT.itemtype, stack = 30))
 
         currentPlayer.items = items
         return currentPlayer

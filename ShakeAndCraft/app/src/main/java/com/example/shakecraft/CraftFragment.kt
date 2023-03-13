@@ -56,8 +56,8 @@ class CraftFragment : Fragment() {
         recyclerViewMaterials = view.findViewById(R.id.RecyclerviewMaterials)
         with(recyclerViewMaterials) {
             layoutManager = LinearLayoutManager(view.context)
-            if(recipe.type == "Objects")
-                adapter = AdapterMaterials(recipe.ingredients, currentPlayer)
+            adapter = AdapterMaterials(recipe.ingredients, currentPlayer)
+
         }
 
     }

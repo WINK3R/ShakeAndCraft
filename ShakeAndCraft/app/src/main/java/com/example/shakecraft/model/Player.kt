@@ -1,45 +1,26 @@
 package com.example.shakecraft.model
 
+import com.example.shakecraft.R
+
 class Player(val pseudo: String, var xp: Int = 0) {
     var level: Int = 1
-
+    val image: Int = R.drawable.player_image
     var items: MutableList<Item> = mutableListOf()
     var rank: String = "Beginner"
 
 
     fun changeRank(){
-        if(this.level<=2){
-            this.rank = "Beginner"
-        }
-        else if(this.level<=5){
-            this.rank = "Intermediate"
-        }
-        else if(this.level<=8){
-            this.rank = "Proficient"
-        }
-        else if(this.level<=11){
-            this.rank = "Expert"
-        }
-        else if(this.level<=14){
-            this.rank = "Master"
-        }
-        else if(this.level<=17){
-            this.rank = "Professional"
-        }
-        else if(this.level<=20){
-            this.rank = "Champion"
-        }
-        else if(this.level<=23){
-            this.rank = "Beginner"
-        }
-        else if(this.level<=26){
-            this.rank = "Legend"
-        }
-        else if(this.level<=29){
-            this.rank = "Invincible"
-        }
-        else if(this.level<=32){
-            this.rank = "Divine"
+        this.rank = when(level){
+            in 1..2 -> "Beginner"
+            in 3..5 -> "Intermediate"
+            in 6..8 -> "Proficient"
+            in 9..11 -> "Expert"
+            in 12..14 -> "Master"
+            in 15..17 -> "Professional"
+            in 18..19 -> "Champion"
+            in 20..22 -> "Legend"
+            in 23..25 -> "Invincible"
+            else -> {"Divine"}
         }
     }
     fun addItem(item: Item) {
