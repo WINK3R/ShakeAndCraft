@@ -43,6 +43,7 @@ Une fois le dépot cloné, vous pouvez lancer le code sur votre téléphone Andr
   <img src="https://codefirst.iut.uca.fr/git/lucas.delanier/ShakeAndCraft/raw/branch/master/Documentations/overview-shakeandcraft.png"  />
 </p>
 
+
 ## :wrench: SUPPORT
 En cas de problème lors de l'utilisation de l'application, vous pouvez nous contacer aux adresses suivantes :
 
