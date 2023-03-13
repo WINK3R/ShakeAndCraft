@@ -1,6 +1,6 @@
 package com.example.shakecraft.data
 
-import com.example.shakecraft.model.itemManager.Companion.ITEMS
+import com.example.shakecraft.model.ItemManager.Companion.ITEMS
 import com.example.shakecraft.model.Item
 import com.example.shakecraft.model.Player
 

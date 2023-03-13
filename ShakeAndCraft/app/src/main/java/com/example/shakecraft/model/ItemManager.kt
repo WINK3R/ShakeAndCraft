@@ -1,7 +1,7 @@
 package com.example.shakecraft.model
 import com.example.shakecraft.R
 
-class itemManager {
+class ItemManager {
     companion object {
         enum class ITEMS(val itemtype: ItemType){
 

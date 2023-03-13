@@ -1,5 +1,5 @@
 package com.example.shakecraft.model
-import com.example.shakecraft.model.itemManager.Companion.ITEMS
+import com.example.shakecraft.model.ItemManager.Companion.ITEMS
 
 class RecipeManager {
 
