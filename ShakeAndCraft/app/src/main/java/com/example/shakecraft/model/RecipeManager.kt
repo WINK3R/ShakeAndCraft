@@ -14,8 +14,8 @@ class RecipeManager {
                     Item("Wooden Plank", image = R.drawable.wooden_plank, stack = 2)
                 ), "Objects"),
             Recipe(
-                Item("Wooden Plank", image = R.drawable.wooden_plank, stack = 4),listOf(
-                    Item("Beech Log", image = R.drawable.log2, stack = 2)
+                Item("Wooden Plank", image = R.drawable.wooden_plank, stack = 3),listOf(
+                    Item("Beech Log", image = R.drawable.log2, stack = 1)
                 ), "Objects"),
             Recipe(
                 Item("Wooden Ball", image = R.drawable.wooden_ball, stack = 1),listOf(

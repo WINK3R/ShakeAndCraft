@@ -80,6 +80,8 @@ class CraftFragment : Fragment() {
 
         buttonForge.setOnClickListener{
             currentPlayer.craft(recipe)
+            initializeViews(view, currentPlayer)
+            setUpRecyclerView(view, currentPlayer)
         }
 
 

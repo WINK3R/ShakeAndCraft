@@ -10,7 +10,7 @@ class Item(
     var stack: Int = 1,
     var image: Int,
     var xpReward: Int = 0,
-) : Parcelable{
+) : Parcelable {
 
 
     override fun describeContents(): Int {

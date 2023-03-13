@@ -49,7 +49,7 @@ class Player(val pseudo: String, var xp: Int = 0) {
             println("findItem n: "+findItem.stack+" item nb:"+item.stack)
             findItem.stack += item.stack
         }
-        else{items.add(item)}
+        else{items.add( Item(item.name, item.rarity, item.stack, item.image, item.xpReward))}
     }
 
     fun gainXp(xp: Int) {
