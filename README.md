@@ -12,7 +12,6 @@
 [![Quality Gate Status](https://codefirst.iut.uca.fr/sonar/api/project_badges/measure?project=ShakeAndCraft&metric=alert_status&token=bb717076471bf71ba25b805c0b6ad18e4ae5c047)](https://codefirst.iut.uca.fr/sonar/dashboard?id=ShakeAndCraft)
 [![Security Rating](https://codefirst.iut.uca.fr/sonar/api/project_badges/measure?project=ShakeAndCraft&metric=security_rating&token=bb717076471bf71ba25b805c0b6ad18e4ae5c047)](https://codefirst.iut.uca.fr/sonar/dashboard?id=ShakeAndCraft)
 [![Vulnerabilities](https://codefirst.iut.uca.fr/sonar/api/project_badges/measure?project=ShakeAndCraft&metric=vulnerabilities&token=bb717076471bf71ba25b805c0b6ad18e4ae5c047)](https://codefirst.iut.uca.fr/sonar/dashboard?id=ShakeAndCraft)
-[![Technical Debt](https://codefirst.iut.uca.fr/sonar/api/project_badges/measure?project=ShakeAndCraft&metric=sqale_index&token=bb717076471bf71ba25b805c0b6ad18e4ae5c047)](https://codefirst.iut.uca.fr/sonar/dashboard?id=ShakeAndCraft)
 
 
 **ShakeAndCraft** est un jeu mobile de type RPG dans lequel vous etes invités a secouer votre téléphone pour récuperer des ressources ainsi que combattre des boss surpuissants. Vous y découvrirais également un systeme de craft et d'évenement relié a la météo en temps réel.
