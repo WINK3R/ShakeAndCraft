@@ -7,10 +7,13 @@ trigger:
         - push
 
 steps:
+    - name: Install unzip
+      image: alpine
+      commands:
+        - apk add --no-cache unzip
     - name: build
       image: gradle:jdk11
       commands:
-        - apk add --no-cache unzip
         - wget -q "https://dl.google.com/android/repository/commandlinetools-linux-7302050_latest.zip" -O android-sdk.zip
         - unzip -q android-sdk.zip -d $HOME/android-sdk
         - echo 'export ANDROID_SDK_ROOT=$HOME/android-sdk' >> $HOME/.bashrc
