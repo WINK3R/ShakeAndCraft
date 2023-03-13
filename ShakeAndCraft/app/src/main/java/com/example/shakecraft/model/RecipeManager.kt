@@ -74,6 +74,22 @@ class RecipeManager {
             return true
         }
 
+        fun HowManyCraftable(recipe: Recipe, player: Player): Int{
+            var divisedList = mutableListOf<Int>()
+            if(isCraftable(recipe,player)==false)
+                return 0
+            else{
+                for(element in recipe.ingredients){
+                    println("cc")
+                    val itemSearch = player.items.find { it.name == element.name }
+                    if(itemSearch!= null)
+                        divisedList.add(itemSearch.stack / element.stack)
+                }
+                return divisedList.min()
+            }
+        }
+
+
 
     }
 }

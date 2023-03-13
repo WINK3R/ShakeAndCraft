@@ -67,5 +67,20 @@
             app:enterAnim="@android:anim/fade_in"
             app:popUpTo="@id/homeFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_forgeFragment_to_craftFragment"
+            app:destination="@id/craftFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/craftFragment"
+        android:name="com.example.shakecraft.CraftFragment"
+        android:label="CraftFragment" >
+        <action
+            android:id="@+id/action_craftFragment_to_forgeFragment"
+            app:destination="@id/forgeFragment"
+            app:enterAnim="@android:anim/fade_in" />
+        <argument
+            android:name="recipe"
+            app:argType="com.example.shakecraft.model.Recipe" />
     </fragment>
 </navigation>
