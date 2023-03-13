@@ -6,10 +6,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.Adapter
 import com.example.shakecraft.R
 import com.example.shakecraft.model.Item
-import com.example.shakecraft.view.viewholder.ViewHolderInventory
+
 
 
 class AdapterInventory(private val inventory: List<Item>) : RecyclerView.Adapter<AdapterInventory.ViewHolder>() {
