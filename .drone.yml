@@ -14,7 +14,7 @@ steps:
     - name: sonarqube
       image: sonarsource/sonar-scanner-cli:4.5
       environment:
-        - SONAR_HOST_URL=https://your-sonarqube-url.com
-        - SONAR_LOGIN=${SONAR_TOKEN}
+        SONAR_HOST_URL: "https://your-sonarqube-url.com"
+        SONAR_LOGIN: ${SONAR_TOKEN}
       commands:
         - sonar-scanner 
