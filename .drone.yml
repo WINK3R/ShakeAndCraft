@@ -7,6 +7,16 @@ trigger:
         - push
 
 steps:
+  - name: install-unzip
+    image: alpine
+    commands:
+      - apk add --no-cache unzip
+  - name: install-sonar-scanner
+    image: gradle:jdk11
+    commands:
+      - curl -sSLo /tmp/sonar-scanner-cli.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.5.0.2216-linux.zip
+      - unzip -q /tmp/sonar-scanner-cli.zip -d /opt/sonar-scanner
+      - export PATH=$PATH
     - name: sonarqube
       image: openjdk:latest
       environment:
