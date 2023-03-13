@@ -13,6 +13,6 @@ steps:
         SONAR_HOST_URL: "https://your-sonarqube-url.com"
         SONAR_LOGIN: ${SONAR_TOKEN}
       settings:
-        sources ./ShakeAndCraft/
+        sources: ./ShakeAndCraft/
       commands:
         - sonar-scanner 
