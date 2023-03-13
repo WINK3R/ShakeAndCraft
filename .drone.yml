@@ -10,6 +10,7 @@ steps:
     - name: build
       image: gradle:jdk11
       commands:
+        - cd ShakeAndCraft
         - gradle build
     - name: sonarqube
       image: sonarsource/sonar-scanner-cli:4.5
