@@ -43,26 +43,26 @@ class Generator {
 
         fun generateBoss(): Boss {
             val possibleBoss: List<Pair<Boss, Double>> = listOf(
-                Pair(Boss(name = "Margit the Fell Omen", life = 150, maxlife = 150, image = R.drawable.boss, xpReward = 100, possibleLoot = listOf(
+                Pair(Boss(name = "Margit the Fell Omen", life = 150.0, maxlife = 150, image = R.drawable.boss, xpReward = 100, possibleLoot = listOf(
                     Pair(Item(type = ITEMS.MONSTER_BONES.itemtype), 0.7),
                     Pair(Item(type = ITEMS.MONSTER_EYE.itemtype), 0.3),
                 )), 0.5),
-                Pair(Boss(name = "Godrick the Grafted", life = 200, maxlife = 200, image = R.drawable.skeleton, xpReward = 130, possibleLoot = listOf(
+                Pair(Boss(name = "Godrick the Grafted", life = 200.0, maxlife = 200, image = R.drawable.skeleton, xpReward = 130, possibleLoot = listOf(
                     Pair(Item(type = ITEMS.MONSTER_BONES.itemtype), 0.6),
                     Pair(Item(type = ITEMS.MONSTER_EYE.itemtype), 0.3),
                     Pair(Item(type = ITEMS.TREASURE_KEY.itemtype), 0.1),
                 )), 0.2),
-                Pair(Boss(name = "Red Wolf of Radagon", life = 250, maxlife = 250, image = R.drawable.halberdier, xpReward = 210, possibleLoot = listOf(
+                Pair(Boss(name = "Red Wolf of Radagon", life = 250.0, maxlife = 250, image = R.drawable.halberdier, xpReward = 210, possibleLoot = listOf(
                     Pair(Item(type = ITEMS.MONSTER_BONES.itemtype), 0.6),
                     Pair(Item(type = ITEMS.MONSTER_EYE.itemtype), 0.3),
                     Pair(Item(type = ITEMS.TREASURE_KEY.itemtype), 0.1),
                 )), 0.15),
-                Pair(Boss(name = "Old Banshee", life = 300, maxlife = 300, image = R.drawable.banshee, xpReward = 300, possibleLoot = listOf(
+                Pair(Boss(name = "Old Banshee", life = 300.0, maxlife = 300, image = R.drawable.banshee, xpReward = 300, possibleLoot = listOf(
                     Pair(Item(type = ITEMS.MONSTER_BONES.itemtype), 0.4),
                     Pair(Item(type = ITEMS.MONSTER_EYE.itemtype), 0.4),
                     Pair(Item(type = ITEMS.TREASURE_KEY.itemtype), 0.2),
                 )), 0.10),
-                Pair(Boss(name = "Margit the Fell Omen", life = 500, maxlife = 500, image = R.drawable.lich, xpReward = 500, possibleLoot = listOf(
+                Pair(Boss(name = "Margit the Fell Omen", life = 500.0, maxlife = 500, image = R.drawable.lich, xpReward = 500, possibleLoot = listOf(
                     Pair(Item(type = ITEMS.MONSTER_BONES.itemtype), 0.4),
                     Pair(Item(type = ITEMS.MONSTER_EYE.itemtype), 0.3),
                     Pair(Item(type = ITEMS.TREASURE_KEY.itemtype), 0.3),

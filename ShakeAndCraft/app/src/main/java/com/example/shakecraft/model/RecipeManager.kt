@@ -26,19 +26,19 @@ class RecipeManager {
         val recipeListTools : List<Recipe> = listOf(
 
             Recipe(
-                Item(type = ITEMS.BRONZE_SWORD.itemtype, stack = 1),listOf(
+                Tool(type = ITEMS.BRONZE_SWORD.itemtype, stack = 1, damage = 4),listOf(
                     Item(type = ITEMS.WOODEN_STICK.itemtype, stack = 5),
                     Item(type = ITEMS.BRONZE_INGOT.itemtype, stack = 10)
 
                 ), "Tools"),
             Recipe(
-                Item(type = ITEMS.WIZARD_STAFF.itemtype, stack = 1),listOf(
+                Tool(type = ITEMS.WIZARD_STAFF.itemtype, stack = 1, damage = 6),listOf(
                     Item(type = ITEMS.WOODEN_STICK.itemtype, stack = 10),
                     Item(type = ITEMS.MONSTER_EYE.itemtype, stack = 20),
 
                 ), "Tools"),
             Recipe(
-                Item(type = ITEMS.DIAMOND_AXE.itemtype, stack = 1),listOf(
+                Tool(type = ITEMS.DIAMOND_AXE.itemtype, stack = 1, damage = 8),listOf(
                     Item(type = ITEMS.WOODEN_STICK.itemtype, stack = 5),
                     Item(type = ITEMS.DIAMOND.itemtype, stack = 10),
 

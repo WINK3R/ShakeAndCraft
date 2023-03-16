@@ -4,7 +4,7 @@ import android.os.Parcel
 import android.os.Parcelable
 
 
-class Item(
+open class Item(
     val type: ItemType,
     var stack: Int = 1,
 ) : Parcelable {

@@ -7,6 +7,7 @@ class Player(val pseudo: String, var xp: Int = 0) {
     val image: Int = R.drawable.player_image
     var items: MutableList<Item> = mutableListOf()
     var rank: String = "Beginner"
+    var equipedItem : Tool? = null
 
 
     fun changeRank(){
@@ -30,7 +31,14 @@ class Player(val pseudo: String, var xp: Int = 0) {
             println("findItem n: "+findItem.stack+" item nb:"+item.stack)
             findItem.stack += item.stack
         }
-        else{items.add(Item(type = item.type, stack = item.stack))}
+        else{
+            if(item is Tool){
+                items.add(Tool(type = item.type, stack = item.stack, 4))
+            }
+            else{
+                items.add(Item(type = item.type, stack = item.stack))
+            }
+        }
     }
 
     fun gainXp(xp: Int) {
@@ -40,6 +48,12 @@ class Player(val pseudo: String, var xp: Int = 0) {
             this.xp = 0
             changeRank()
         }
+    }
+
+    fun attack() : Int{
+        if(equipedItem == null)
+            return 0
+        return equipedItem!!.damage
     }
 
 
@@ -65,6 +79,16 @@ class Player(val pseudo: String, var xp: Int = 0) {
         }
         println("item:"+recipe.item.stack)
         addItem(recipe.item)
+        return true
+    }
+
+    fun equipeItem(item : Item) : Boolean{
+        if(equipedItem == item) {
+            println("ca jarte")
+            equipedItem = null
+            return false
+        }
+        equipedItem = item as Tool
         return true
     }
 

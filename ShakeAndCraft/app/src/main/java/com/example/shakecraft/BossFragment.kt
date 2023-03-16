@@ -79,7 +79,7 @@ class BossFragment() : Fragment() {
     }
     private fun setUpBoss(boss: Boss) {
         progressBar.max = boss.maxlife
-        progressBar.progress = boss.life
+        progressBar.progress = boss.life.toInt()
         image.setImageResource(boss.image)
 
         // Create scale animation for boss image
@@ -153,9 +153,14 @@ class BossFragment() : Fragment() {
                     setUpRecyclerView(view)
 
                 } else {
-                    // Reduce boss life based on acceleration value
-                    boss.takeDamage((acceleration / 80).toInt())
-                    progressBar.progress = boss.life
+                    if(acceleration > 20){
+                        boss.takeDamage(((acceleration / 80)+ currentPlayer.attack()/100).toDouble())
+                    }
+                    else{
+                        boss.takeDamage(currentPlayer.attack().toDouble()/100)
+                    }
+                    progressBar.progress = boss.life.toInt()
+
                 }
             }
         }
