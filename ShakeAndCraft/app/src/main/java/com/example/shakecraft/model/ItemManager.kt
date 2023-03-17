@@ -21,13 +21,14 @@ class ItemManager {
 
             IRON_ORE(ItemType(name = "Iron Ore", image = R.drawable.iron_ore, rarity = 2, xpReward = 25)),
             IRON_INGOT(ItemType(name = "Iron Ingot", image = R.drawable.iron_ingot, rarity = 1, xpReward = 0)),
+            OPEN_TREASURE(ItemType(name = "Open Treasure", image = R.drawable.open_treasure, rarity = 3, xpReward = 50)),
 
 
             // Lootable items
             MONSTER_BONES(ItemType(name = "Monster Bones", image = R.drawable.monster_bones, rarity = 1, xpReward = 10)),
             MONSTER_EYE(ItemType(name = "Monster Eye", image = R.drawable.monster_eyes, rarity = 2, xpReward = 20)),
             TREASURE_KEY(ItemType(name = "Treasure Key", image = R.drawable.treasure_key, rarity = 2, xpReward = 20)),
-
+            TREASURE(ItemType(name = "Treasure", image = R.drawable.treasure, rarity = 3, xpReward = 20)),
 
         }
     }

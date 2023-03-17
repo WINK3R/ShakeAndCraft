@@ -80,5 +80,23 @@ class Generator {
             // Si aucun élément n'a été choisi, retourner le dernier élément de la liste
             return possibleBoss.last().first
         }
+
+        fun generateTreasure(): Item{
+            val possibleTreasure: List<Pair<Item,Double>> = listOf(
+                Pair(Item(type= ITEMS.TREASURE_KEY.itemtype), 0.5),
+                Pair(Item(type = ITEMS.MONSTER_BONES.itemtype), 0.5),
+            )
+            val rand = Random.nextDouble()
+
+            var cumulativeProb = 0.0
+            for (element in possibleTreasure) {
+                cumulativeProb += element.second
+                if (rand < cumulativeProb) {
+                    return element.first
+                }
+            }
+            // Si aucun élément n'a été choisi, retourner le dernier élément de la liste
+            return possibleTreasure.last().first
+        }
     }
 }

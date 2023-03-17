@@ -21,7 +21,11 @@ class RecipeManager {
                     Item(type = ITEMS.WOODEN_STICK.itemtype, stack = 2),
                     Item(type = ITEMS.WOODEN_PLANK.itemtype, stack = 2)
                 ), "Objects"),
-
+            Recipe(
+                Item(type = ITEMS.OPEN_TREASURE.itemtype, stack = 1),listOf(
+                    Item(type = ITEMS.TREASURE.itemtype, stack = 1),
+                    Item(type = ITEMS.TREASURE_KEY.itemtype, stack = 1)
+                ), "Objects"),
         )
         val recipeListTools : List<Recipe> = listOf(
 

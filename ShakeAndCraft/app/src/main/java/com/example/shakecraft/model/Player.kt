@@ -1,6 +1,7 @@
 package com.example.shakecraft.model
 
 import com.example.shakecraft.R
+import com.example.shakecraft.model.Generator.Companion.generateTreasure
 
 class Player(val pseudo: String, var xp: Int = 0) {
     var level: Int = 1
@@ -60,6 +61,10 @@ class Player(val pseudo: String, var xp: Int = 0) {
                 searchedItem.stack -= ingredient.stack
                 if (searchedItem.stack == 0){
                     items.remove(searchedItem)
+                }
+                if (recipe.item.type.name == "OPEN_TREASURE"){
+                    addItem(generateTreasure())
+                    return true
                 }
             }
         }
