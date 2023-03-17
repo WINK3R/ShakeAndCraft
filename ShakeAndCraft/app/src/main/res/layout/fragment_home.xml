@@ -66,7 +66,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -149,6 +150,48 @@
                         android:textColor="@color/white"
                         android:textStyle="bold"/>
                 </LinearLayout>
+                <LinearLayout
+                    android:gravity="center_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/equipedItemAttack"
+                        android:tooltipText="Equiped Weapon"
+                        android:layout_gravity="bottom"
+                        android:background="@drawable/background_equiped_item"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:contentDescription="Landscape"
+                        android:layout_marginRight="10dp"/>
+                    <ImageView
+                        android:tooltipText="Equiped Fishing Rod"
+                        android:id="@+id/equipedItemFishing"
+                        android:layout_gravity="bottom"
+                        android:background="@drawable/background_equiped_item"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:contentDescription="Landscape"
+                        android:layout_marginRight="10dp"/>
+                    <ImageView
+                        android:id="@+id/equipedItemCollect"
+                        android:tooltipText="Equiped Tool"
+                        android:layout_gravity="bottom"
+                        android:background="@drawable/background_equiped_item"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:contentDescription="Landscape"
+                        android:layout_marginRight="10dp"/>
+                    <ImageView
+                        android:id="@+id/equipedItemArmor"
+                        android:tooltipText="Equiped Armor"
+                        android:layout_gravity="bottom"
+                        android:background="@drawable/background_equiped_item"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:contentDescription="Landscape"
+                        android:layout_marginRight="10dp"/>
+                </LinearLayout>
+
             </LinearLayout>
         </LinearLayout>
 

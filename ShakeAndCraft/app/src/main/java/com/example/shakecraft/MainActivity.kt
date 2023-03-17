@@ -9,13 +9,13 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.example.shakecraft.data.Stub
-
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class MainActivity : AppCompatActivity() {
 
+class MainActivity: AppCompatActivity() {
 
     var currentPlayer = Stub().load()
 
@@ -43,9 +43,21 @@ class MainActivity : AppCompatActivity() {
 
         bottomNav = findViewById(R.id.bottomNavigationView)
         val navController = findNavController(R.id.fragment)
+        navController.popBackStack(R.id.fragment, false)
         bottomNav.setupWithNavController(navController)
+        bottomNav.setOnItemReselectedListener { item ->
+            // Pop everything up to the reselected item
+            val reselectedDestinationId = item.itemId
+            navController.popBackStack(reselectedDestinationId, inclusive = false)
+        }
+        bottomNav.setOnItemSelectedListener { item ->
+            NavigationUI.onNavDestinationSelected(item, navController)
+            true
+        }
+
 
     }
+
 
     override fun onResume() {
         super.onResume()

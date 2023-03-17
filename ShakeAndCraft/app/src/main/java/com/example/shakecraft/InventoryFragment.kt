@@ -1,5 +1,4 @@
 package com.example.shakecraft
-
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -24,6 +23,7 @@ class InventoryFragment() : Fragment( ), AdapterInventory.OnItemLongClickListene
     override fun onItemLongClick(position: Int) {
         if(currentPlayer.items[position] is Tool) {
             if (currentPlayer.equipeItem(currentPlayer.items[position]) == true)
+
                 Toast.makeText(
                     context,
                     currentPlayer.items[position].type.name + " was well equipped",
@@ -35,7 +35,6 @@ class InventoryFragment() : Fragment( ), AdapterInventory.OnItemLongClickListene
                     currentPlayer.items[position].type.name + " has been well unequipped",
                     Toast.LENGTH_SHORT
                 ).show()
-            println("equiped item")
             setUpRecyclerView(view?.parent as ViewGroup, this)
         }
     }

@@ -48,7 +48,11 @@
         <action
             android:id="@+id/action_homeFragment_to_collectFragment"
             app:destination="@id/collectFragment"
-            app:enterAnim="@android:anim/fade_in" />
+            app:enterAnim="@android:anim/fade_in"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true"
+            app:popUpToSaveState="true"
+            app:restoreState="true" />
         <action
             android:id="@+id/action_homeFragment_to_bossFragment"
             app:destination="@id/bossFragment"

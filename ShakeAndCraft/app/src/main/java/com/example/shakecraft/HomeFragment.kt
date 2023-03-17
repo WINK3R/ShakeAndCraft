@@ -14,6 +14,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.shakecraft.model.Player
 
 
+
 class HomeFragment : Fragment() {
     private lateinit var pseudo : TextView
     private lateinit var progressbar : ProgressBar
@@ -25,6 +26,7 @@ class HomeFragment : Fragment() {
     private lateinit var buttonBoss : ConstraintLayout
     private lateinit var buttonForge : ConstraintLayout
     private lateinit var playermage : ImageView
+    private lateinit var equipeditem: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +44,12 @@ class HomeFragment : Fragment() {
 
         return view
     }
+
+    /*fun loadWeatherDate(){
+        CoroutineScope(Dispatchers.IO).launch {
+            val
+        }
+    }*/
     private fun initializeViews(view: View, currentPlayer : Player) {
         pseudo = view.findViewById(R.id.pseudoTextView)
         progressbar = view.findViewById(R.id.levelProgressBar)
@@ -51,6 +59,7 @@ class HomeFragment : Fragment() {
         xp = view.findViewById(R.id.xpTextView)
         playermage = view.findViewById(R.id.playerImage)
         buttonCollect = view.findViewById(R.id.buttonCollect)
+        equipeditem = view.findViewById(R.id.equipedItemAttack)
         buttonCollect.setOnClickListener{
             findNavController().navigate(R.id.action_homeFragment_to_collectFragment, null, NavOptions.Builder().setPopUpTo(R.id.homeFragment, false).build())
         }
@@ -70,6 +79,8 @@ class HomeFragment : Fragment() {
         progressbar.progress = currentPlayer.xp
         progressbar.max = currentPlayer.level*100
         playermage.setImageResource(currentPlayer.image)
+        if(currentPlayer.equipedItem?.type?.image != null) equipeditem.setImageResource(
+            currentPlayer.equipedItem!!.type.image)
     }
 
 
