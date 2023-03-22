@@ -83,8 +83,7 @@ class Generator {
 
         fun generateTreasure(): Item{
             val possibleTreasure: List<Pair<Item,Double>> = listOf(
-                Pair(Item(type= ITEMS.TREASURE_KEY.itemtype), 0.5),
-                Pair(Item(type = ITEMS.MONSTER_BONES.itemtype), 0.5),
+                Pair(Item(type = ITEMS.MONSTER_BONES.itemtype), 0.9),
             )
             val rand = Random.nextDouble()
 

@@ -62,7 +62,8 @@ class Player(val pseudo: String, var xp: Int = 0) {
                 if (searchedItem.stack == 0){
                     items.remove(searchedItem)
                 }
-                if (recipe.item.type.name == "OPEN_TREASURE"){
+                println(ingredient.type.name)
+                if (recipe.item.type.name == "Open Treasure"){
                     addItem(generateTreasure())
                     return true
                 }
