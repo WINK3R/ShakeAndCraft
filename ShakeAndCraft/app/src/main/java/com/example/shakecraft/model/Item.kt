@@ -3,7 +3,6 @@ package com.example.shakecraft.model
 import android.os.Parcel
 import android.os.Parcelable
 
-
 open class Item(
     val type: ItemType,
     var stack: Int = 1,
