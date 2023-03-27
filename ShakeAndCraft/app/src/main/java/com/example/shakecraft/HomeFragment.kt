@@ -14,7 +14,6 @@ import androidx.navigation.fragment.findNavController
 import com.example.shakecraft.model.Player
 
 
-
 class HomeFragment : Fragment() {
     private lateinit var pseudo : TextView
     private lateinit var progressbar : ProgressBar
@@ -32,6 +31,7 @@ class HomeFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

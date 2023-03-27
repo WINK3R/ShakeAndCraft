@@ -12,12 +12,20 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.example.shakecraft.data.Stub
+import com.example.shakecraft.services.OpenWeatherMapService
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 
 class MainActivity: AppCompatActivity() {
 
     var currentPlayer = Stub().load()
+    var isRaining = false
 
 
     @RequiresApi(Build.VERSION_CODES.R)
@@ -40,6 +48,26 @@ class MainActivity: AppCompatActivity() {
         hideSystemUI()
         setContentView(R.layout.activity_main)
 
+        val apiKey = "85a2724ad38b3994c2b7ebe1d239bbff"
+        val cityName = "Clermont-Ferrand"
+
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://api.openweathermap.org/data/2.5/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        val openWeatherMapService = retrofit.create(OpenWeatherMapService::class.java)
+
+        GlobalScope.launch(Dispatchers.Main) {
+            val weatherResponse = withContext(Dispatchers.IO) {
+                openWeatherMapService.getCurrentWeather(cityName, apiKey)
+            }
+
+            isRaining =
+                weatherResponse.weather.any { it.main.contains("rain", ignoreCase = true) }
+
+            println(isRaining)
+        }
 
         bottomNav = findViewById(R.id.bottomNavigationView)
         val navController = findNavController(R.id.fragment)
@@ -56,7 +84,10 @@ class MainActivity: AppCompatActivity() {
         }
 
 
+
     }
+
+
 
 
     override fun onResume() {
