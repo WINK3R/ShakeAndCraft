@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -26,7 +25,7 @@ class HomeFragment : Fragment() {
     private lateinit var buttonForge : ConstraintLayout
     private lateinit var playermage : ImageView
     private lateinit var equipeditem: ImageView
-    private lateinit var event: LinearLayout
+    private lateinit var eventFishing: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,7 +61,7 @@ class HomeFragment : Fragment() {
         playermage = view.findViewById(R.id.playerImage)
         buttonCollect = view.findViewById(R.id.buttonCollect)
         equipeditem = view.findViewById(R.id.equipedItemAttack)
-        event = view.findViewById(R.id.event_container)
+        eventFishing = view.findViewById(R.id.buttonFishing)
         buttonCollect.setOnClickListener{
             findNavController().navigate(R.id.action_homeFragment_to_collectFragment, null, NavOptions.Builder().setPopUpTo(R.id.homeFragment, false).build())
         }
@@ -84,8 +83,8 @@ class HomeFragment : Fragment() {
         playermage.setImageResource(currentPlayer.image)
         if(currentPlayer.equipedItem?.type?.image != null) equipeditem.setImageResource(
             currentPlayer.equipedItem!!.type.image)
-        if(isRaining == false){
-            event.visibility = View.VISIBLE
+        if(isRaining == true){
+            eventFishing.visibility = View.VISIBLE
 
         }
     }

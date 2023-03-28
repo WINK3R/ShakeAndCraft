@@ -368,9 +368,9 @@
 <LinearLayout
     android:orientation="vertical"
     android:id="@+id/event_container"
-    android:layout_height="wrap_content"
-    android:gravity="center"
-    android:visibility="gone"
+    android:layout_height="200dp"
+    android:gravity="center_horizontal"
+    android:visibility="visible"
     android:layout_width="match_parent"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
@@ -394,7 +394,7 @@
     </ImageView>
     <ImageView
         android:id="@+id/buttonFishing"
-        android:visibility="visible"
+        android:visibility="gone"
         android:clickable="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
