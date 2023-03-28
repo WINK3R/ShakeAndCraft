@@ -1,9 +1,12 @@
 package com.example.shakecraft
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
@@ -14,7 +17,7 @@ import com.example.shakecraft.model.Player
 
 
 class HomeFragment : Fragment() {
-    private lateinit var pseudo : TextView
+    private lateinit var pseudoEditText : EditText
     private lateinit var progressbar : ProgressBar
     private lateinit var level : TextView
     private lateinit var rank : TextView
@@ -52,7 +55,6 @@ class HomeFragment : Fragment() {
         }
     }*/
     private fun initializeViews(view: View, currentPlayer : Player, isRaining : Boolean) {
-        pseudo = view.findViewById(R.id.pseudoTextView)
         progressbar = view.findViewById(R.id.levelProgressBar)
         level = view.findViewById(R.id.levelTextView)
         rank = view.findViewById(R.id.rankTextView)
@@ -73,7 +75,6 @@ class HomeFragment : Fragment() {
         buttonForge.setOnClickListener{
             findNavController().navigate(R.id.action_homeFragment_to_forgeFragment, null, NavOptions.Builder().setPopUpTo(R.id.homeFragment, false).build())
         }
-        pseudo.text = currentPlayer.pseudo
         level.text = currentPlayer.level.toString()
         rank.text = currentPlayer.rank
         xp.text = currentPlayer.xp.toString()
@@ -87,6 +88,22 @@ class HomeFragment : Fragment() {
             eventFishing.visibility = View.VISIBLE
 
         }
+
+
+        pseudoEditText = view.findViewById(R.id.pseudoEditText)
+
+        pseudoEditText.setText(currentPlayer.pseudo)
+        pseudoEditText.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                currentPlayer.pseudo = s.toString()
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+            }
+        })
     }
 
 

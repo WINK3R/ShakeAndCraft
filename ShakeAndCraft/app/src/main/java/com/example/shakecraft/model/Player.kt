@@ -2,7 +2,7 @@ package com.example.shakecraft.model
 
 import com.example.shakecraft.R
 
-class Player(val pseudo: String, var xp: Int = 0) {
+class Player(var pseudo: String, var xp: Int = 0) {
     var level: Int = 1
     val image: Int = R.drawable.player_image
     var items: MutableList<Item> = mutableListOf()
