@@ -1,11 +1,25 @@
 package com.example.shakecraft.model
 
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.ForeignKey
+import androidx.room.PrimaryKey
 import com.example.shakecraft.R
 import com.example.shakecraft.model.Generator.Companion.generateTreasure
 
-class Player(val pseudo: String, var xp: Int = 0) {
-    var level: Int = 1
+@Entity(tableName="Player")
+class Player() {
+    @PrimaryKey(autoGenerate = true)
+    val id : Int = 0
+    @ColumnInfo(name = "name")
+    val pseudo: String = "Unknow"
+    @ColumnInfo(name = "level")
+    var level: Int = 0
+    @ColumnInfo(name = "xp")
+    var xp: Int = 0
+    @ColumnInfo(name = "image")
     val image: Int = R.drawable.player_image
+    @ColumnInfo(index = true)
     var items: MutableList<Item> = mutableListOf()
     var rank: String = "Beginner"
 

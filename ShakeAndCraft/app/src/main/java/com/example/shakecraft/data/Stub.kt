@@ -8,7 +8,7 @@ import com.example.shakecraft.model.Player
 class Stub {
 
     fun load() : Player{
-        val currentPlayer = Player("Winker",0)
+        val currentPlayer = Player()
         val items : MutableList<Item> = mutableListOf()
         items.add(Item(type = ITEMS.BEECH_LOG.itemtype, stack = 30))
         items.add(Item(type = ITEMS.BRONZE_INGOT.itemtype, stack = 30))
