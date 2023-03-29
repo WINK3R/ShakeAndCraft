@@ -20,7 +20,6 @@ class Player() {
     @ColumnInfo(name = "image")
     val image: Int = R.drawable.player_image
     @ColumnInfo(index = true)
-    var items: MutableList<Item> = mutableListOf()
     var rank: String = "Beginner"
 
 
@@ -38,15 +37,7 @@ class Player() {
             else -> {"Divine"}
         }
     }
-    fun addItem(item: Item) {
-        val findItem = items.find { it.type.name == item.type.name }
 
-        if(findItem!= null){
-            println("findItem n: "+findItem.stack+" item nb:"+item.stack)
-            findItem.stack += item.stack
-        }
-        else{items.add(Item(type = item.type, stack = item.stack))}
-    }
 
     fun gainXp(xp: Int) {
         this.xp += xp
@@ -55,37 +46,6 @@ class Player() {
             this.xp = 0
             changeRank()
         }
-    }
-
-
-    fun hasItem(item: Item) : Boolean{
-        for (playeritem in items){
-            if(playeritem.type.name == item.type.name && playeritem.stack >= item.stack){
-                return true
-            }
-        }
-        return false
-    }
-
-    fun craft(recipe: Recipe) : Boolean{
-        println("test")
-        for (ingredient in recipe.ingredients) {
-            val searchedItem = items.find { it.type.name == ingredient.type.name }
-            if(searchedItem != null) {
-                searchedItem.stack -= ingredient.stack
-                if (searchedItem.stack == 0){
-                    items.remove(searchedItem)
-                }
-                println(ingredient.type.name)
-                if (recipe.item.type.name == "Open Treasure"){
-                    addItem(generateTreasure())
-                    return true
-                }
-            }
-        }
-        println("item:"+recipe.item.stack)
-        addItem(recipe.item)
-        return true
     }
 
 }

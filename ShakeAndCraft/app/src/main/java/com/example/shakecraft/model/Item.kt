@@ -2,7 +2,14 @@ package com.example.shakecraft.model
 
 import android.os.Parcel
 import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.ForeignKey
 
+@Entity(tableName = "Item", foreignKeys = [ForeignKey(
+    entity = ItemType::class, parentColumns = arrayOf("name"),
+    childColumns = arrayOf("itemtype"),
+    onUpdate = ForeignKey.CASCADE,
+    onDelete = ForeignKey.CASCADE)])
 class Item(
     val type: ItemType,
     var stack: Int = 1,

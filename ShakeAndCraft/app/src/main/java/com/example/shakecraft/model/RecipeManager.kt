@@ -68,23 +68,23 @@ class RecipeManager {
 
 
 
-        fun isCraftable(recipe: Recipe, player: Player): Boolean{
+        fun isCraftable(recipe: Recipe, inventory: Inventory): Boolean{
             for (ingredient in recipe.ingredients) {
-                if (!player.hasItem(ingredient)) {
+                if (!inventory.hasItem(ingredient)) {
                     return false
                 }
             }
             return true
         }
 
-        fun HowManyCraftable(recipe: Recipe, player: Player): Int{
+        fun HowManyCraftable(recipe: Recipe, inventory: Inventory): Int{
             val divisedList = mutableListOf<Int>()
-            if(isCraftable(recipe,player)==false)
+            if(isCraftable(recipe,inventory)==false)
                 return 0
             else{
                 for(element in recipe.ingredients){
                     println("cc")
-                    val itemSearch = player.items.find { it.type.name == element.type.name }
+                    val itemSearch = inventory.items.find { it.type.name == element.type.name }
                     if(itemSearch!= null)
                         divisedList.add(itemSearch.stack / element.stack)
                 }
