@@ -14,20 +14,20 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:paddingTop="50dp"
-        android:paddingBottom="20dp"
+        android:paddingBottom="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginBottom="20dp">
+        app:layout_constraintBottom_toTopOf="@id/RecipeScroll">
 
         <TextView
             android:id="@+id/backbutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="left|center_vertical"
+            android:layout_gravity="start|center_vertical"
             android:focusable="true"
-            android:drawableStart="@drawable/back"
-            android:drawableTint="@color/blue"
+            app:drawableStartCompat="@drawable/back"
+            app:drawableTint="@color/blue"
             android:text="Home"
             android:textColor="@color/blue"
             android:textSize="16sp"
@@ -51,96 +51,108 @@
 
     </FrameLayout>
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/RecipeScroll"
         android:layout_width="match_parent"
-        android:layout_height="635dp"
+        android:layout_height="4294967294dp"
         android:paddingHorizontal="10dp"
+        app:layout_constraintTop_toBottomOf="@id/frameLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout">
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <LinearLayout
-            android:background="@drawable/recipelistcard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginVertical="10dp"
-            android:paddingBottom="10dp">
-            <TextView
-                    android:paddingTop="20dp"
-                    android:paddingLeft="20dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="17dp"
-                    android:textColor="@color/grey_400"
-                    android:textStyle="bold"
-                    android:text="Objects"/>
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:overScrollMode="never"
-                        android:id="@+id/RecyclerviewObjects"
-                        android:layout_marginHorizontal="20dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        tools:listitem="@layout/list_recipe"
-                        tools:itemCount="3"/>
 
-
-        </LinearLayout>
             <LinearLayout
-                android:background="@drawable/recipelistcard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_marginVertical="10dp"
+                android:background="@drawable/recipelistcard"
+                android:orientation="vertical"
                 android:paddingBottom="10dp">
+
                 <TextView
-                    android:paddingTop="20dp"
-                    android:paddingLeft="20dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="17dp"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="20dp"
+                    android:text="Objects"
                     android:textColor="@color/grey_400"
-                    android:textStyle="bold"
-                    android:text="Tools"/>
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
                 <androidx.recyclerview.widget.RecyclerView
-                    android:overScrollMode="never"
-                    android:id="@+id/RecyclerviewTools"
-                    android:layout_marginHorizontal="20dp"
+                    android:id="@+id/RecyclerviewObjects"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    tools:listitem="@layout/list_recipe"
-                    tools:itemCount="3"/>
+                    android:layout_marginHorizontal="20dp"
+                    android:overScrollMode="never"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/list_recipe" />
 
 
             </LinearLayout>
+
             <LinearLayout
-                android:background="@drawable/recipelistcard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_marginVertical="10dp"
+                android:background="@drawable/recipelistcard"
+                android:orientation="vertical"
                 android:paddingBottom="10dp">
+
                 <TextView
-                    android:paddingTop="20dp"
-                    android:paddingLeft="20dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="17dp"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:text="Tools"
                     android:textColor="@color/grey_400"
-                    android:textStyle="bold"
-                    android:text="Blacksmithing"/>
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/RecyclerviewTools"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:overScrollMode="never"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/list_recipe" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:background="@drawable/recipelistcard"
+                android:orientation="vertical"
+                android:paddingBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:text="Blacksmithing"
+                    android:textColor="@color/grey_400"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/RecyclerviewBlacksmithing"
-                    android:overScrollMode="never"
-                    android:layout_marginHorizontal="20dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    tools:listitem="@layout/list_recipe"
-                    tools:itemCount="3"/>
+                    android:layout_marginHorizontal="20dp"
+                    android:overScrollMode="never"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/list_recipe"/>
 
 
             </LinearLayout>
@@ -149,7 +161,6 @@
         </LinearLayout>
 
 
-
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
