@@ -18,25 +18,25 @@
 [![Technical Debt](https://codefirst.iut.uca.fr/sonar/api/project_badges/measure?project=ShakeAndCraft&metric=sqale_index&token=bb717076471bf71ba25b805c0b6ad18e4ae5c047)](https://codefirst.iut.uca.fr/sonar/dashboard?id=ShakeAndCraft)
 [![Duplicated Lines (%)](https://codefirst.iut.uca.fr/sonar/api/project_badges/measure?project=ShakeAndCraft&metric=duplicated_lines_density&token=bb717076471bf71ba25b805c0b6ad18e4ae5c047)](https://codefirst.iut.uca.fr/sonar/dashboard?id=ShakeAndCraft)
 
-**ShakeAndCraft** est un jeu mobile de type RPG dans lequel vous etes invités a secouer votre téléphone pour récuperer des ressources ainsi que combattre des boss surpuissants. Vous y découvrirais également un systeme de craft et d'évenement relié a la météo en temps réel.
+**ShakeAndCraft** est un jeu mobile de type RPG dans lequel vous êtes invités a secouer votre téléphone pour récupérer des ressources ainsi que combattre des boss surpuissants. Vous y découvrirEZ également un système de crafts et d'événements reliés a la météo en temps réel.
 
 ## :floppy_disk: FEATURES
 
-Sur la page principale, vous pouvez voir les informations de votre personnages ( pseudo, level, xp, rank) ainsi que des boutons de navigtions vers les pages de jeu.
+Sur la page principale, vous pouvez voir les informations de votre personnages ( pseudo, level, xp, rank) ainsi que des boutons de navigation vers les pages de jeu.
 
 La page "Inventory" vous permet de voir tous les items que vous possédez dans une liste dans laquelle vous pouvez rechercher par le nom un item en particulié.
 
 La page "Ancient Forge" affiche les crafts disponibles dans le jeu avec un effet grisé pour les crafts qui ne peuvent pas etre fabriqués.
 
-La page "Pleasent Forest" est une page de jeu dans laquelle le joueur doit secouer son téléphone pour charger une barre dechargement. Une fois celle ci compete, un item est choisi selon sa rareté affiché sur l'écran et est ajouté a l'inventaire du joueur. 
+La page "Pleasent Forest" est une page de jeu dans laquelle le joueur doit secouer son téléphone pour charger une barre de chargement. Une fois celle ci complète, un item est choisi selon sa rareté affiché sur l'écran et est ajouté a l'inventaire du joueur. 
 
-La page "Dungeon" est une page de jeu dans laquelle le joueur doit secouer son téléphone pour faire déscendre la vie d'un Boss beaucoup plus compliqué que la recolte de ressources. Une fois le boss tué, un item est ajouté a l'inventaire du joueur selon la rareté affiché a l'écran. 
+La page "Dungeon" est une page de jeu dans laquelle le joueur doit secouer son téléphone pour faire descendre la vie d'un Boss beaucoup plus compliqué que la recolte de ressources. Une fois le boss tué, un item est ajouté a l'inventaire du joueur selon la rareté affiché a l'écran. 
 
 ![](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 ## :dizzy: Getting Started
 
-Une fois le dépot cloné, vous pouvez lancer le code sur votre téléphone Android grace a l'outil Android studio ou grace a un émulateur android.
+Une fois le dépot cloné, vous pouvez lancer le code sur votre téléphone Android ou sur un émulateur Android grace a l'outil Android studio.
 
 
 
@@ -48,7 +48,7 @@ Une fois le dépot cloné, vous pouvez lancer le code sur votre téléphone Andr
 
 
 ## :wrench: SUPPORT
-En cas de problème lors de l'utilisation de l'application, vous pouvez nous contacer aux adresses suivantes :
+En cas de problème lors de l'utilisation de l'application, vous pouvez nous contacter aux adresses suivantes :
 
 
 Lucas Delanier : **lucas.delanier@etu.uca.fr** </br>
