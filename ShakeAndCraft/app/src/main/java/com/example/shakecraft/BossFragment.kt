@@ -39,7 +39,6 @@ class BossFragment() : Fragment() {
     private lateinit var image: ImageView
     private lateinit var buttonCollect: TextView
     private lateinit var recyclerView: RecyclerView
-    private lateinit var boss: Boss
     val viewModel : MainViewModel by activityViewModels<MainViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,8 +55,9 @@ class BossFragment() : Fragment() {
         initializeViews(view)
 
         // Set up boss
-        boss = Generator.generateBoss()
-        setUpBoss(boss)
+        if(viewModel.currentBoss == null)
+            viewModel.currentBoss = Generator.generateBoss()
+        setUpBoss(viewModel.currentBoss!!)
 
         // Set up RecyclerView for boss loot
         setUpRecyclerView(view)
@@ -104,7 +104,7 @@ class BossFragment() : Fragment() {
         recyclerView = view.findViewById(R.id.recyclerviewBossLoot)
         with(recyclerView) {
             layoutManager = LinearLayoutManager(view.context)
-            adapter = AdapterBossLoot(boss.possibleLoot)
+            adapter = AdapterBossLoot(viewModel.currentBoss?.possibleLoot!!)
         }
     }
     private fun setUpActivityOrientation(){
@@ -119,7 +119,7 @@ class BossFragment() : Fragment() {
         toastView.visibility = View.VISIBLE
         lootImage.setImageResource(item.type.image)
         lootName.text = item.type.name
-        xpReward.text = boss.xpReward.toString()
+        xpReward.text = viewModel.currentBoss?.xpReward.toString()
         toastView.postDelayed({
             toastView.visibility = View.GONE
         }, 3000)
@@ -133,35 +133,35 @@ class BossFragment() : Fragment() {
             }
             override fun onSensorChanged(event: SensorEvent?) {
                 val acceleration = sqrt(event!!.values[0].pow(2) + event.values[1].pow(2) + event.values[2].pow(2))
-                if (boss.life <= 0) {
+                if (viewModel.currentBoss?.life!! <= 0) {
 
                     //Vibration to signal the death of the boss
                     val vibrator = context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
                     vibrator.vibrate(100)
 
                     // Generate a loot item and XP reward
-                    val item = Generator.generateLootBoss(boss.possibleLoot)
+                    val item = Generator.generateLootBoss(viewModel.currentBoss!!.possibleLoot)
                     currentPlayer.addItem(item)
-                    currentPlayer.gainXp(boss.xpReward)
+                    currentPlayer.gainXp(viewModel.currentBoss!!.xpReward)
 
                     // Show loot toast view for 3 seconds
                     displayToast(view,item)
 
                     // Spawn new boss and reset progress bar
-                    boss = Generator.generateBoss()
-                    setUpBoss(boss)
+                    viewModel.currentBoss = Generator.generateBoss()
+                    setUpBoss(viewModel.currentBoss!!)
 
                     //Update displayed information
                     setUpRecyclerView(view)
 
                 } else {
                     if(acceleration > 20){
-                        boss.takeDamage(((acceleration / 80)+ currentPlayer.attack()/100).toDouble())
+                        viewModel.currentBoss!!.takeDamage(((acceleration / 80)+ currentPlayer.attack()/100).toDouble())
                     }
                     else{
-                        boss.takeDamage(currentPlayer.attack().toDouble()/100)
+                        viewModel.currentBoss!!.takeDamage(currentPlayer.attack().toDouble()/100)
                     }
-                    progressBar.progress = boss.life.toInt()
+                    progressBar.progress = viewModel.currentBoss!!.life.toInt()
 
                 }
             }
