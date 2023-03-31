@@ -26,6 +26,7 @@ class CraftFragment : Fragment() {
     private lateinit var image: ImageView
     private lateinit var name: TextView
     private lateinit var buttonForge: Button
+    private lateinit var buttonForgeMax: Button
     private lateinit var numberCraftable: TextView
     val viewModel : MainViewModel by activityViewModels<MainViewModel>()
 
@@ -66,6 +67,7 @@ class CraftFragment : Fragment() {
     private fun initializeViews(view: View, currentPlayer: Player) {
         buttonBack = view.findViewById(R.id.backbutton)
         buttonForge = view.findViewById(R.id.buttonForge)
+        buttonForgeMax = view.findViewById(R.id.buttonForgeMax)
         numberCraftable = view.findViewById(R.id.craftableNumber)
 
         buttonBack.setOnClickListener{
@@ -76,10 +78,17 @@ class CraftFragment : Fragment() {
         image.setImageResource(recipe.item.type.image)
         name.text = recipe.item.type.name
         buttonForge.isEnabled = RecipeManager.isCraftable(recipe,currentPlayer)
+        buttonForgeMax.isEnabled = RecipeManager.isCraftable(recipe,currentPlayer)
+        buttonForgeMax.text = "CRAFT MAX (${RecipeManager.HowManyCraftable(recipe, currentPlayer)})"
         numberCraftable.text = RecipeManager.HowManyCraftable(recipe,currentPlayer).toString()
 
         buttonForge.setOnClickListener{
             currentPlayer.craft(recipe)
+            initializeViews(view, currentPlayer)
+            setUpRecyclerView(view, currentPlayer)
+        }
+        buttonForgeMax.setOnClickListener{
+            currentPlayer.craft(recipe, RecipeManager.HowManyCraftable(recipe, currentPlayer))
             initializeViews(view, currentPlayer)
             setUpRecyclerView(view, currentPlayer)
         }

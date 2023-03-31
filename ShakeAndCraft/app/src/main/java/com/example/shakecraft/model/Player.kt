@@ -66,19 +66,21 @@ class Player(var pseudo: String, var xp: Int = 0) {
         return false
     }
 
-    fun craft(recipe: Recipe) : Boolean{
+    fun craft(recipe: Recipe, count: Int = 1) : Boolean{
         println("test")
-        for (ingredient in recipe.ingredients) {
-            val searchedItem = items.find { it.type.name == ingredient.type.name }
-            if(searchedItem != null) {
-                searchedItem.stack -= ingredient.stack
-                if (searchedItem.stack == 0){
-                    items.remove(searchedItem)
+        for (i in 1..count) {
+            for (ingredient in recipe.ingredients) {
+                val searchedItem = items.find { it.type.name == ingredient.type.name }
+                if (searchedItem != null) {
+                    searchedItem.stack -= ingredient.stack
+                    if (searchedItem.stack == 0) {
+                        items.remove(searchedItem)
+                    }
                 }
             }
+            println("item:" + recipe.item.stack)
+            addItem(recipe.item)
         }
-        println("item:"+recipe.item.stack)
-        addItem(recipe.item)
         return true
     }
 

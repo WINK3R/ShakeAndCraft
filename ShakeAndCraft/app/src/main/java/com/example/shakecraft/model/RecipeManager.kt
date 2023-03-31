@@ -79,7 +79,6 @@ class RecipeManager {
                 return 0
             else{
                 for(element in recipe.ingredients){
-                    println("cc")
                     val itemSearch = player.items.find { it.type.name == element.type.name }
                     if(itemSearch!= null)
                         divisedList.add(itemSearch.stack / element.stack)
