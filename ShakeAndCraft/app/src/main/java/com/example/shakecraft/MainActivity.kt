@@ -8,11 +8,12 @@ import androidx.annotation.RequiresApi
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
-import com.example.shakecraft.data.Stub
 import com.example.shakecraft.services.OpenWeatherMapService
+import com.example.shakecraft.viewmodel.MainViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -24,8 +25,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity: AppCompatActivity() {
 
-    var currentPlayer = Stub().load()
     var isRaining = false
+    private lateinit var viewModel: MainViewModel
 
 
     @RequiresApi(Build.VERSION_CODES.R)
@@ -47,6 +48,7 @@ class MainActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         hideSystemUI()
         setContentView(R.layout.activity_main)
+        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
         val apiKey = "85a2724ad38b3994c2b7ebe1d239bbff"
         val cityName = "Clermont-Ferrand"
@@ -98,6 +100,7 @@ class MainActivity: AppCompatActivity() {
                 or View.SYSTEM_UI_FLAG_FULLSCREEN
                 or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY)
     }
+
 
 
 

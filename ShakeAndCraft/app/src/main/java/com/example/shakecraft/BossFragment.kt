@@ -16,6 +16,7 @@ import android.view.animation.ScaleAnimation
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -24,6 +25,7 @@ import com.example.shakecraft.model.Generator
 import com.example.shakecraft.model.Item
 import com.example.shakecraft.model.Player
 import com.example.shakecraft.view.adapter.AdapterBossLoot
+import com.example.shakecraft.viewmodel.MainViewModel
 import kotlin.math.pow
 import kotlin.math.sqrt
 
@@ -38,6 +40,7 @@ class BossFragment() : Fragment() {
     private lateinit var buttonCollect: TextView
     private lateinit var recyclerView: RecyclerView
     private lateinit var boss: Boss
+    val viewModel : MainViewModel by activityViewModels<MainViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,7 +50,6 @@ class BossFragment() : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val currentPlayer = (activity as MainActivity).currentPlayer
         val view = inflater.inflate(R.layout.fragment_boss, container, false)
 
         // Initialize views
@@ -61,7 +63,7 @@ class BossFragment() : Fragment() {
         setUpRecyclerView(view)
 
         // Set up accelerometer listener
-        setUpAccelerometerListener(view, currentPlayer)
+        setUpAccelerometerListener(view, viewModel.currentPlayer)
 
         // Set up activity orientation
         setUpActivityOrientation()

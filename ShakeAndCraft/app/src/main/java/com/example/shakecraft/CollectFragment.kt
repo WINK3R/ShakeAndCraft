@@ -16,12 +16,14 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.fragment.app.activityViewModels
 
 import androidx.navigation.fragment.findNavController
 
 import com.example.shakecraft.model.Generator
 import com.example.shakecraft.model.Item
 import com.example.shakecraft.model.Player
+import com.example.shakecraft.viewmodel.MainViewModel
 
 
 import kotlin.math.pow
@@ -34,6 +36,7 @@ class CollectFragment() : Fragment() {
     private lateinit var accelerometerEventListener: SensorEventListener
     private lateinit var progressBar: ProgressBar
     private lateinit var buttonBack: TextView
+    val viewModel : MainViewModel by activityViewModels<MainViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,14 +47,13 @@ class CollectFragment() : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val currentPlayer = (activity as MainActivity).currentPlayer
         val view = inflater.inflate(R.layout.fragment_collect, container, false)
 
         // Initialize views
         initializeViews(view)
 
         // Set up accelerometer listener
-        setUpAccelerometerListener(view,currentPlayer)
+        setUpAccelerometerListener(view,viewModel.currentPlayer)
 
         // Set up activity orientation
         setUpActivityOrientation()

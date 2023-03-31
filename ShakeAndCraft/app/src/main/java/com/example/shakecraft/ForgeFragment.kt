@@ -15,6 +15,7 @@ import com.example.shakecraft.model.RecipeManager
 import com.example.shakecraft.view.adapter.AdapterRecipe
 
 
+
 class ForgeFragment : Fragment(), AdapterRecipe.OnItemClickListener {
     private lateinit var buttonBack: TextView
     private lateinit var recyclerViewObjects: RecyclerView

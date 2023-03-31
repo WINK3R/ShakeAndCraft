@@ -11,9 +11,11 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.example.shakecraft.model.Player
+import com.example.shakecraft.viewmodel.MainViewModel
 
 
 class HomeFragment : Fragment() {
@@ -29,6 +31,7 @@ class HomeFragment : Fragment() {
     private lateinit var playermage : ImageView
     private lateinit var equipeditem: ImageView
     private lateinit var eventFishing: ImageView
+    val viewModel : MainViewModel by activityViewModels<MainViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,12 +42,11 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val currentPlayer = (activity as MainActivity).currentPlayer
         val isRaining = (activity as MainActivity).isRaining
         val view = inflater.inflate(R.layout.fragment_home,container,false)
 
         // Initialize views
-        initializeViews(view, currentPlayer, isRaining)
+        initializeViews(view, viewModel.currentPlayer, isRaining)
 
         return view
     }

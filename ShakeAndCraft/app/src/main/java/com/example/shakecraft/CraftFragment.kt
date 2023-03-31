@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -15,7 +16,7 @@ import com.example.shakecraft.model.Player
 import com.example.shakecraft.model.Recipe
 import com.example.shakecraft.model.RecipeManager
 import com.example.shakecraft.view.adapter.AdapterMaterials
-
+import com.example.shakecraft.viewmodel.MainViewModel
 
 
 class CraftFragment : Fragment() {
@@ -26,6 +27,7 @@ class CraftFragment : Fragment() {
     private lateinit var name: TextView
     private lateinit var buttonForge: Button
     private lateinit var numberCraftable: TextView
+    val viewModel : MainViewModel by activityViewModels<MainViewModel>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,12 +40,11 @@ class CraftFragment : Fragment() {
     ): View? {
 
 
-        val currentPlayer = (activity as MainActivity).currentPlayer
         val view = inflater.inflate(R.layout.fragment_craft, container, false)
         recipe = arguments?.getParcelable("recipe")!!
 
-        initializeViews(view, currentPlayer)
-        setUpRecyclerView(view,currentPlayer)
+        initializeViews(view, viewModel.currentPlayer)
+        setUpRecyclerView(view,viewModel.currentPlayer)
         return view
     }
 
