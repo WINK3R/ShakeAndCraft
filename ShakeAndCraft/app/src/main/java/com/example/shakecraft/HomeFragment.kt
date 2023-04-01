@@ -84,9 +84,10 @@ class HomeFragment : Fragment() {
         progressbar.progress = currentPlayer.xp
         progressbar.max = currentPlayer.level*100
         playermage.setImageResource(currentPlayer.image)
-        if(currentPlayer.equipedItem?.type?.image != null) equipeditem.setImageResource(
-            currentPlayer.equipedItem!!.type.image)
-        if(isRaining == true){
+        if(currentPlayer.equipedItem?.type?.image != null) {
+            equipeditem.setImageResource(currentPlayer.equipedItem!!.type.image)
+        }
+        if(isRaining){
             eventFishing.visibility = View.VISIBLE
 
         }

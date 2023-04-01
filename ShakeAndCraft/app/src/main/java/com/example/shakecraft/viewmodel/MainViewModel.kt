@@ -8,5 +8,6 @@ import com.example.shakecraft.model.Player
 class MainViewModel : ViewModel() {
 
     var currentPlayer : Player = Stub().load()
-    var currentBoss : Boss? = null
+    lateinit var currentBoss : Boss
+    val isBossInitialized get() = this::currentBoss.isInitialized
 }

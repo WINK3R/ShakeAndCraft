@@ -28,6 +28,7 @@ class CraftFragment : Fragment() {
     private lateinit var buttonForge: Button
     private lateinit var buttonForgeMax: Button
     private lateinit var numberCraftable: TextView
+    private lateinit var craftValue : TextView
     val viewModel : MainViewModel by activityViewModels<MainViewModel>()
 
 
@@ -69,6 +70,7 @@ class CraftFragment : Fragment() {
         buttonForge = view.findViewById(R.id.buttonForge)
         buttonForgeMax = view.findViewById(R.id.buttonForgeMax)
         numberCraftable = view.findViewById(R.id.craftableNumber)
+        craftValue = view.findViewById(R.id.craftValue)
 
         buttonBack.setOnClickListener{
             findNavController().navigate(R.id.action_craftFragment_to_forgeFragment)
@@ -79,8 +81,8 @@ class CraftFragment : Fragment() {
         name.text = recipe.item.type.name
         buttonForge.isEnabled = RecipeManager.isCraftable(recipe,currentPlayer)
         buttonForgeMax.isEnabled = RecipeManager.isCraftable(recipe,currentPlayer)
-        buttonForgeMax.text = "CRAFT MAX (${RecipeManager.HowManyCraftable(recipe, currentPlayer)})"
         numberCraftable.text = RecipeManager.HowManyCraftable(recipe,currentPlayer).toString()
+        craftValue.text = recipe.item.stack.toString()
 
         buttonForge.setOnClickListener{
             currentPlayer.craft(recipe)

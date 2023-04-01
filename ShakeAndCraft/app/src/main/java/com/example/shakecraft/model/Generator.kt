@@ -1,6 +1,5 @@
 package com.example.shakecraft.model
 import com.example.shakecraft.R
-import com.example.shakecraft.model.ItemManager.Companion.ITEMS
 import kotlin.random.Random
 
 class Generator {

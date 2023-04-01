@@ -1,5 +1,4 @@
 package com.example.shakecraft.model
-import com.example.shakecraft.model.ItemManager.Companion.ITEMS
 
 class RecipeManager {
 
@@ -75,15 +74,14 @@ class RecipeManager {
 
         fun HowManyCraftable(recipe: Recipe, player: Player): Int{
             val divisedList = mutableListOf<Int>()
-            if(isCraftable(recipe,player)==false)
-                return 0
+            return if (!isCraftable(recipe,player)) 0
             else{
                 for(element in recipe.ingredients){
                     val itemSearch = player.items.find { it.type.name == element.type.name }
                     if(itemSearch!= null)
                         divisedList.add(itemSearch.stack / element.stack)
                 }
-                return divisedList.min()
+                divisedList.min()
             }
         }
 

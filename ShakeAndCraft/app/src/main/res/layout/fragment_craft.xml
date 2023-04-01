@@ -26,22 +26,22 @@
             android:layout_height="wrap_content"
             android:layout_gravity="start|center_vertical"
             android:focusable="true"
-            android:drawableStart="@drawable/back"
-            android:drawableTint="@color/blue"
-            android:text="Ancient Forge"
+            android:text="@string/ancient_forge"
             android:textColor="@color/blue"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:drawableStartCompat="@drawable/back"
+            app:drawableTint="@color/blue" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Recipe"
+            android:text="@string/recipe"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -63,6 +63,7 @@
         app:layout_constraintTop_toBottomOf="@+id/frameLayout">
 
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -71,14 +72,32 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
+            <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/item_image"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/item_recipe_background"
-                android:contentDescription="image of item"
-                app:srcCompat="@drawable/wooden_stick" />
+                <ImageView
+                    android:id="@+id/item_image"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/item_recipe_background"
+                    android:contentDescription="@string/image_of_item"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/wooden_stick" />
+
+                <TextView
+                    android:id="@+id/craftValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="1"
+                    android:paddingRight="2dp"
+                    android:textColor="@color/white" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
             <TextView
@@ -137,8 +156,8 @@
         android:layout_marginHorizontal="10dp"
         android:layout_marginBottom="5dp"
         android:backgroundTint="@color/button_background_color"
-        android:text="Forge MAX"
-        android:textColor="@color/grey"
+        android:text="FORGE MAX"
+        android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/buttonForge"
         app:layout_constraintEnd_toEndOf="parent"

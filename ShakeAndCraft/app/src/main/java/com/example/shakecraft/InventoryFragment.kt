@@ -23,20 +23,13 @@ class InventoryFragment() : Fragment( ), AdapterInventory.OnItemLongClickListene
     }
 
     override fun onItemLongClick(position: Int) {
-        if(viewModel.currentPlayer.items[position] is Tool) {
-            if (viewModel.currentPlayer.equipeItem(viewModel.currentPlayer.items[position]) == true)
-
-                Toast.makeText(
-                    context,
-                    viewModel.currentPlayer.items[position].type.name + " was well equipped",
-                    Toast.LENGTH_SHORT
-                ).show()
-            else
-                Toast.makeText(
-                    context,
-                    viewModel.currentPlayer.items[position].type.name + " has been well unequipped",
-                    Toast.LENGTH_SHORT
-                ).show()
+        if (viewModel.currentPlayer.items[position] is Tool) {
+            val text = if (viewModel.currentPlayer.equipeItem(viewModel.currentPlayer.items[position]) ) " was well equipped" else " has been well unequipped"
+            Toast.makeText(
+                context,
+                viewModel.currentPlayer.items[position].type.name + text,
+                Toast.LENGTH_SHORT
+            ).show()
             setUpRecyclerView(view?.parent as ViewGroup, this)
         }
     }
