@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/black_800"
     android:scaleType="center"
-    tools:context=".CollectFragment">
+    tools:context=".fragment.CollectFragment">
 
     <FrameLayout
         android:id="@+id/frameLayout"

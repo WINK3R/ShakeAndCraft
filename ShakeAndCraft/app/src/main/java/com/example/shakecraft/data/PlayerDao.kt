@@ -1,7 +1,6 @@
 package com.example.shakecraft.data
 
 import androidx.room.Query
-import com.example.shakecraft.model.Boss
 import com.example.shakecraft.model.Player
 import kotlinx.coroutines.flow.Flow
 import java.util.List

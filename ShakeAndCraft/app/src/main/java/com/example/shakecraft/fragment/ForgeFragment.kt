@@ -1,4 +1,4 @@
-package com.example.shakecraft
+package com.example.shakecraft.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,6 +10,7 @@ import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.shakecraft.R
 import com.example.shakecraft.model.Recipe
 import com.example.shakecraft.model.RecipeManager
 import com.example.shakecraft.view.adapter.AdapterRecipe

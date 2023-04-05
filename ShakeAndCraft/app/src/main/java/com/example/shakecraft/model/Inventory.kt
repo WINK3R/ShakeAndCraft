@@ -1,6 +1,6 @@
 package com.example.shakecraft.model
 
-class Inventory {
+class Inventory() {
     var items: MutableList<Item> = mutableListOf()
 
     fun addItem(item: Item) {
@@ -14,8 +14,8 @@ class Inventory {
     }
 
     fun hasItem(item: Item) : Boolean{
-        for (inventoryitem in items){
-            if(inventoryitem.type.name == item.type.name && inventoryitem.stack >= item.stack){
+        for (inventoryItem in items){
+            if(inventoryItem.type.name == item.type.name && inventoryItem.stack >= item.stack){
                 return true
             }
         }

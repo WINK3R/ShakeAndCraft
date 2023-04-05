@@ -1,4 +1,4 @@
-package com.example.shakecraft
+package com.example.shakecraft.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.shakecraft.MainActivity
+import com.example.shakecraft.R
 import com.example.shakecraft.model.Player
 import com.example.shakecraft.view.adapter.AdapterInventory
 
@@ -35,7 +37,7 @@ class InventoryFragment() : Fragment( ) {
         recyclerView = view.findViewById(R.id.recyclerviewInventory)
         with(recyclerView) {
             layoutManager = LinearLayoutManager(view.context)
-            adapter = AdapterInventory(currentPlayer.items)
+            adapter = AdapterInventory(currentPlayer.inventory.items)
         }
     }
 

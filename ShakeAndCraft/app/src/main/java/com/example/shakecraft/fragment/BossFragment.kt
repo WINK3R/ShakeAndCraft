@@ -1,4 +1,4 @@
-package com.example.shakecraft
+package com.example.shakecraft.fragment
 import android.content.Context
 import android.content.pm.ActivityInfo
 import android.hardware.Sensor
@@ -19,6 +19,8 @@ import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.shakecraft.MainActivity
+import com.example.shakecraft.R
 import com.example.shakecraft.model.Boss
 import com.example.shakecraft.model.Generator
 import com.example.shakecraft.model.Item
@@ -139,7 +141,7 @@ class BossFragment() : Fragment() {
 
                     // Generate a loot item and XP reward
                     val item = Generator.generateLootBoss(boss.possibleLoot)
-                    currentPlayer.addItem(item)
+                    currentPlayer.inventory.addItem(item)
                     currentPlayer.gainXp(boss.xpReward)
 
                     // Show loot toast view for 3 seconds

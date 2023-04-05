@@ -1,4 +1,4 @@
-package com.example.shakecraft
+package com.example.shakecraft.fragment
 
 
 import android.content.Context
@@ -18,6 +18,8 @@ import android.widget.ProgressBar
 import android.widget.TextView
 
 import androidx.navigation.fragment.findNavController
+import com.example.shakecraft.MainActivity
+import com.example.shakecraft.R
 
 import com.example.shakecraft.model.Generator
 import com.example.shakecraft.model.Item
@@ -101,7 +103,7 @@ class CollectFragment() : Fragment() {
 
                     // Generate a resource item and XP reward
                     val item = Generator.generateLootCollection()
-                    currentPlayer.addItem(item)
+                    currentPlayer.inventory.addItem(item)
                     currentPlayer.gainXp(item.type.xpReward)
 
                     //reset to 0 the progress bar

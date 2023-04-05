@@ -1,4 +1,4 @@
-package com.example.shakecraft
+package com.example.shakecraft.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,6 +11,8 @@ import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.shakecraft.MainActivity
+import com.example.shakecraft.R
 import com.example.shakecraft.model.Player
 import com.example.shakecraft.model.Recipe
 import com.example.shakecraft.model.RecipeManager
@@ -74,11 +76,11 @@ class CraftFragment : Fragment() {
         name = view.findViewById(R.id.item_name)
         image.setImageResource(recipe.item.type.image)
         name.text = recipe.item.type.name
-        buttonForge.isEnabled = RecipeManager.isCraftable(recipe,currentPlayer)
-        numberCraftable.text = RecipeManager.HowManyCraftable(recipe,currentPlayer).toString()
+        buttonForge.isEnabled = RecipeManager.isCraftable(recipe,currentPlayer.inventory)
+        numberCraftable.text = RecipeManager.HowManyCraftable(recipe,currentPlayer.inventory).toString()
 
         buttonForge.setOnClickListener{
-            currentPlayer.craft(recipe)
+            currentPlayer.inventory.craft(recipe)
             initializeViews(view, currentPlayer)
             setUpRecyclerView(view, currentPlayer)
         }

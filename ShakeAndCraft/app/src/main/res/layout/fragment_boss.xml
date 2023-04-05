@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/backgroundboss"
     android:scaleType="center"
-    tools:context=".BossFragment">
+    tools:context=".fragment.BossFragment">
 
     <FrameLayout
         android:id="@+id/frameLayout"

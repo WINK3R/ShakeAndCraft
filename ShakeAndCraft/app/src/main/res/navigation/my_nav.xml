@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/bossFragment"
-        android:name="com.example.shakecraft.BossFragment"
+        android:name="com.example.shakecraft.fragment.BossFragment"
         android:label="fragment_boss"
         tools:layout="@layout/fragment_boss" >
         <action
@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/collectFragment"
-        android:name="com.example.shakecraft.CollectFragment"
+        android:name="com.example.shakecraft.fragment.CollectFragment"
         android:label="fragment_collect"
         tools:layout="@layout/fragment_collect" >
         <action
@@ -33,17 +33,17 @@
 
     <fragment
         android:id="@+id/plusFragment"
-        android:name="com.example.shakecraft.PlusFragment"
+        android:name="com.example.shakecraft.fragment.PlusFragment"
         android:label="fragment_plus"
         tools:layout="@layout/fragment_plus" />
     <fragment
         android:id="@+id/inventoryFragment"
-        android:name="com.example.shakecraft.InventoryFragment"
+        android:name="com.example.shakecraft.fragment.InventoryFragment"
         android:label="fragment_inventory"
         tools:layout="@layout/fragment_inventory" />
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.shakecraft.HomeFragment"
+        android:name="com.example.shakecraft.fragment.HomeFragment"
         android:label="HomeFragment" >
         <action
             android:id="@+id/action_homeFragment_to_collectFragment"
@@ -59,7 +59,7 @@
     </fragment>
     <fragment
         android:id="@+id/forgeFragment"
-        android:name="com.example.shakecraft.ForgeFragment"
+        android:name="com.example.shakecraft.fragment.ForgeFragment"
         android:label="ForgeFragment" >
         <action
             android:id="@+id/action_forgeFragment_to_homeFragment"
@@ -73,7 +73,7 @@
     </fragment>
     <fragment
         android:id="@+id/craftFragment"
-        android:name="com.example.shakecraft.CraftFragment"
+        android:name="com.example.shakecraft.fragment.CraftFragment"
         android:label="CraftFragment" >
         <action
             android:id="@+id/action_craftFragment_to_forgeFragment"

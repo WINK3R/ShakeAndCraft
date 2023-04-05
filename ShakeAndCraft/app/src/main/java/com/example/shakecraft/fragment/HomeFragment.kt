@@ -1,4 +1,4 @@
-package com.example.shakecraft
+package com.example.shakecraft.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,6 +11,8 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
+import com.example.shakecraft.MainActivity
+import com.example.shakecraft.R
 import com.example.shakecraft.model.Player
 
 
@@ -52,15 +54,21 @@ class HomeFragment : Fragment() {
         playermage = view.findViewById(R.id.playerImage)
         buttonCollect = view.findViewById(R.id.buttonCollect)
         buttonCollect.setOnClickListener{
-            findNavController().navigate(R.id.action_homeFragment_to_collectFragment, null, NavOptions.Builder().setPopUpTo(R.id.homeFragment, false).build())
+            findNavController().navigate(
+                R.id.action_homeFragment_to_collectFragment, null, NavOptions.Builder().setPopUpTo(
+                    R.id.homeFragment, false).build())
         }
         buttonBoss = view.findViewById(R.id.buttonBoss)
         buttonBoss.setOnClickListener{
-            findNavController().navigate(R.id.action_homeFragment_to_bossFragment, null, NavOptions.Builder().setPopUpTo(R.id.homeFragment, false).build())
+            findNavController().navigate(
+                R.id.action_homeFragment_to_bossFragment, null, NavOptions.Builder().setPopUpTo(
+                    R.id.homeFragment, false).build())
         }
         buttonForge = view.findViewById(R.id.buttonForge)
         buttonForge.setOnClickListener{
-            findNavController().navigate(R.id.action_homeFragment_to_forgeFragment, null, NavOptions.Builder().setPopUpTo(R.id.homeFragment, false).build())
+            findNavController().navigate(
+                R.id.action_homeFragment_to_forgeFragment, null, NavOptions.Builder().setPopUpTo(
+                    R.id.homeFragment, false).build())
         }
         pseudo.text = currentPlayer.pseudo
         level.text = currentPlayer.level.toString()

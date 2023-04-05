@@ -2,10 +2,8 @@ package com.example.shakecraft.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
-import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 import com.example.shakecraft.R
-import com.example.shakecraft.model.Generator.Companion.generateTreasure
 
 @Entity(tableName="Player")
 class Player() {
@@ -21,6 +19,7 @@ class Player() {
     val image: Int = R.drawable.player_image
     @ColumnInfo(index = true)
     var rank: String = "Beginner"
+    val inventory: Inventory= Inventory()
 
 
     fun changeRank(){
