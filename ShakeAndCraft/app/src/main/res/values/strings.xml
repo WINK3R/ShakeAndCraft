@@ -6,4 +6,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="landscape">landscape</string>
     <string name="wikiImage">Wiki image</string>
+    <string name="ancient_forge">Ancient Forge</string>
+    <string name="recipe">Recipe</string>
+    <string name="image_of_item">Image</string>
 </resources>
