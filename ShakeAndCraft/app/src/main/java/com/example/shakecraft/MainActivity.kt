@@ -4,21 +4,18 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.example.shakecraft.services.OpenWeatherMapService
 import com.example.shakecraft.viewmodel.MainViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -26,8 +23,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class MainActivity: AppCompatActivity() {
 
     var isRaining = false
-    private lateinit var viewModel: MainViewModel
-
+    private val model: MainViewModel by viewModels()
 
     @RequiresApi(Build.VERSION_CODES.R)
     private fun hideSystemUI() {
@@ -48,8 +44,6 @@ class MainActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         hideSystemUI()
         setContentView(R.layout.activity_main)
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-
         val apiKey = "85a2724ad38b3994c2b7ebe1d239bbff"
         val cityName = "Clermont-Ferrand"
 
@@ -60,10 +54,8 @@ class MainActivity: AppCompatActivity() {
 
         val openWeatherMapService = retrofit.create(OpenWeatherMapService::class.java)
 
-        GlobalScope.launch(Dispatchers.Main) {
-            val weatherResponse = withContext(Dispatchers.IO) {
-                openWeatherMapService.getCurrentWeather(cityName, apiKey)
-            }
+        CoroutineScope(Dispatchers.IO).launch {
+            val weatherResponse = openWeatherMapService.getCurrentWeather(cityName, apiKey)
 
             isRaining =
                 weatherResponse.weather.any { it.main.contains("rain", ignoreCase = true) }

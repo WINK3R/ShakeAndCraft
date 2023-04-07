@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shakecraft.model.Tool
@@ -23,15 +24,18 @@ class InventoryFragment() : Fragment( ), AdapterInventory.OnItemLongClickListene
     }
 
     override fun onItemLongClick(position: Int) {
-        if (viewModel.currentPlayer.items[position] is Tool) {
-            val text = if (viewModel.currentPlayer.equipeItem(viewModel.currentPlayer.items[position]) ) " was well equipped" else " has been well unequipped"
-            Toast.makeText(
-                context,
-                viewModel.currentPlayer.items[position].type.name + text,
-                Toast.LENGTH_SHORT
-            ).show()
-            setUpRecyclerView(view?.parent as ViewGroup, this)
-        }
+        viewModel.currentPlayer.observe(viewLifecycleOwner, Observer {
+            if (it.items[position] is Tool) {
+                val text = if (it.equipeItem(it.items[position]) ) " was well equipped" else " has been well unequipped"
+                Toast.makeText(
+                    context,
+                    it.items[position].type.name + text,
+                    Toast.LENGTH_SHORT
+                ).show()
+                setUpRecyclerView(view?.parent as ViewGroup, this)
+            }
+        })
+
     }
     override fun onCreateView(
 
@@ -46,11 +50,18 @@ class InventoryFragment() : Fragment( ), AdapterInventory.OnItemLongClickListene
         return view
     }
     private fun setUpRecyclerView(view: View,listener: AdapterInventory.OnItemLongClickListener ) {
+
         recyclerView = view.findViewById(R.id.recyclerviewInventory)
-        with(recyclerView) {
-            layoutManager = LinearLayoutManager(view.context)
-            adapter = AdapterInventory(viewModel.currentPlayer.items, listener , viewModel.currentPlayer)
-        }
+        viewModel.currentPlayer.observe(viewLifecycleOwner, Observer {
+            with(recyclerView) {
+                layoutManager = LinearLayoutManager(view.context)
+                adapter = AdapterInventory(
+                    it.items,
+                    listener,
+                    it
+                )
+            }
+        })
     }
 
 

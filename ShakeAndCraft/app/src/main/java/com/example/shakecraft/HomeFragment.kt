@@ -12,6 +12,7 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.example.shakecraft.model.Player
@@ -46,7 +47,11 @@ class HomeFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_home,container,false)
 
         // Initialize views
-        initializeViews(view, viewModel.currentPlayer, isRaining)
+
+        viewModel.currentPlayer.observe(viewLifecycleOwner, Observer {
+            initializeViews(view, it, isRaining)
+        })
+
 
         return view
     }

@@ -17,6 +17,7 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 
 import androidx.navigation.fragment.findNavController
 
@@ -53,7 +54,12 @@ class CollectFragment() : Fragment() {
         initializeViews(view)
 
         // Set up accelerometer listener
-        setUpAccelerometerListener(view,viewModel.currentPlayer)
+
+        viewModel.currentPlayer.observe(viewLifecycleOwner, Observer {
+            setUpAccelerometerListener(view, it)
+        })
+
+
 
         // Set up activity orientation
         setUpActivityOrientation()

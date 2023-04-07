@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -29,7 +30,7 @@ class CraftFragment : Fragment() {
     private lateinit var buttonForgeMax: Button
     private lateinit var numberCraftable: TextView
     private lateinit var craftValue : TextView
-    val viewModel : MainViewModel by activityViewModels<MainViewModel>()
+    private val viewModel : MainViewModel by activityViewModels()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,8 +46,12 @@ class CraftFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_craft, container, false)
         recipe = arguments?.getParcelable("recipe")!!
 
-        initializeViews(view, viewModel.currentPlayer)
-        setUpRecyclerView(view,viewModel.currentPlayer)
+
+        viewModel.currentPlayer.observe(this.viewLifecycleOwner, Observer {player ->
+            initializeViews(view, player)
+            setUpRecyclerView(view, player)
+        })
+
         return view
     }
 
@@ -85,14 +90,10 @@ class CraftFragment : Fragment() {
         craftValue.text = recipe.item.stack.toString()
 
         buttonForge.setOnClickListener{
-            currentPlayer.craft(recipe)
-            initializeViews(view, currentPlayer)
-            setUpRecyclerView(view, currentPlayer)
+            viewModel.craft(recipe)
         }
         buttonForgeMax.setOnClickListener{
             currentPlayer.craft(recipe, RecipeManager.HowManyCraftable(recipe, currentPlayer))
-            initializeViews(view, currentPlayer)
-            setUpRecyclerView(view, currentPlayer)
         }
 
 
