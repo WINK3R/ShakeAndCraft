@@ -17,7 +17,6 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -64,9 +63,7 @@ class BossFragment() : Fragment() {
         setUpRecyclerView(view)
 
         // Set up accelerometer listener
-        viewModel.currentPlayer.observe(viewLifecycleOwner, Observer {
-            setUpAccelerometerListener(view, it)
-        })
+        viewModel.currentPlayer.value?.let { setUpAccelerometerListener(view, it) }
 
 
         // Set up activity orientation
