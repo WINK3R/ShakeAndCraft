@@ -38,7 +38,7 @@ android {
 apply plugin: 'kotlin-kapt'
 
 dependencies {
-
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.1"
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
@@ -52,5 +52,5 @@ dependencies {
     implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
     kapt 'androidx.room:room-compiler:2.5.1'
     implementation 'androidx.room:room-ktx:2.5.1'
-    implementation 'androdx.room:room-runtime:2.5.1'
+    implementation 'androidx.room:room-runtime:2.5.1'
 }

@@ -1,14 +1,21 @@
 package com.example.shakecraft.data
 
-import androidx.room.Query
+import androidx.room.*
 import com.example.shakecraft.model.Player
 import kotlinx.coroutines.flow.Flow
-import java.util.List
 
+@Dao
 interface PlayerDao {
-    @Query("SELECT * from Player ")
-    fun getBoss(): Flow<List<Player>>
 
-    @Query("SELECT * from Player WHERE name = :name")
-    fun getBoss(name : String): Flow<Player>
+    @Query("SELECT * FROM Player")
+    fun getPlayer(): Flow<Player>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insert(player: Player)
+
+    @Update
+    suspend fun update(player: Player)
+
+    @Delete
+    suspend fun delete(player: Player)
 }
