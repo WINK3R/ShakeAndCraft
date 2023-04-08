@@ -17,23 +17,23 @@ class MainViewModel : ViewModel() {
 
     fun craft(recipe : Recipe, count : Int = 1){
         currentPlayer.value?.craft(recipe, count)
-        currentPlayer.value = currentPlayer.value
+        this.currentPlayer.value = currentPlayer.value
     }
 
     fun addItem(item: Item) {
         currentPlayer.value?.addItem(item)
-        currentPlayer.value = currentPlayer.value
+        this.currentPlayer.value = currentPlayer.value
 
     }
 
     fun gainXp(xpReward: Int) {
         currentPlayer.value?.gainXp(xpReward)
-        currentPlayer.value = currentPlayer.value
+        this.currentPlayer.value = currentPlayer.value
     }
 
     fun equipeItem(item: Item): Boolean {
         currentPlayer.value?.equipeItem(item)
-        currentPlayer.value = currentPlayer.value
+        this.currentPlayer.value = currentPlayer.value
         return true
     }
 }
