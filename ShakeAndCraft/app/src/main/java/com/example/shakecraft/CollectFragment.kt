@@ -17,7 +17,6 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
 
 import androidx.navigation.fragment.findNavController
 
@@ -54,12 +53,7 @@ class CollectFragment() : Fragment() {
         initializeViews(view)
 
         // Set up accelerometer listener
-
-        viewModel.currentPlayer.observe(viewLifecycleOwner, Observer {
-            setUpAccelerometerListener(view, it)
-        })
-
-
+        viewModel.currentPlayer.value?.let { setUpAccelerometerListener(view, it) }
 
         // Set up activity orientation
         setUpActivityOrientation()
@@ -109,7 +103,7 @@ class CollectFragment() : Fragment() {
 
                     // Generate a resource item and XP reward
                     val item = Generator.generateLootCollection()
-                    currentPlayer.addItem(item)
+                    viewModel.addItem(item)
                     currentPlayer.gainXp(item.type.xpReward)
 
                     //reset to 0 the progress bar

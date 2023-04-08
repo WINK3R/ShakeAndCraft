@@ -93,7 +93,7 @@ class CraftFragment : Fragment() {
             viewModel.craft(recipe)
         }
         buttonForgeMax.setOnClickListener{
-            currentPlayer.craft(recipe, RecipeManager.HowManyCraftable(recipe, currentPlayer))
+            viewModel.craft(recipe, RecipeManager.HowManyCraftable(recipe, currentPlayer))
         }
 
 
