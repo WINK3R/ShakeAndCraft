@@ -46,6 +46,7 @@ La page "Dungeon" est une page de jeu dans laquelle le joueur doit secouer son t
 ✅ ViewModel : Lucas Delanier</br>
 ✅ LiveData : Lucas Delanier</br>
 ✅ Model, Player, Item, Tool, Boss, ItemManager, Generator : Lucas Delanier</br>
+✅ Requete API, retrofit : Lucas Delanier</br>
 👷 Persistence profonde : Lucas Delanier, Theo Renaud</br>
 
 ## :dizzy: Getting Started
