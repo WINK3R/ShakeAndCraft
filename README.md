@@ -34,9 +34,25 @@ La page "Dungeon" est une page de jeu dans laquelle le joueur doit secouer son t
 
 ![](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
+## :bar_chart: distribution of work
+✅ Fragment Home : Lucas Delanier
+✅ Fragment Craft : Lucas Delanier
+✅ Fragment Forge : Lucas Delanier
+✅ Fragment Boss : Lucas Delanier
+✅ Fragment Collect : Lucas Delanier
+✅ Gestion de la rotation de l'écran Home fragment : Lucas Delanier
+✅ Gestion du capteur Accélérometre : Lucas Delanier
+✅ RecyclerView, Adapter, viewholder : Lucas Delanier
+✅ ViewModel : Lucas Delanier
+✅ LiveData : Lucas Delanier
+✅ Model, Player, Item, Tool, Boss, ItemManager, Generator : Lucas Delanier
+👷 Persistence profonde : Lucas Delanier, Theo Renaud
+
 ## :dizzy: Getting Started
 
 Une fois le dépot cloné, vous pouvez lancer le code sur votre téléphone Android grace a l'outil Android studio ou grace a un émulateur android.
+
+
 
 
 
