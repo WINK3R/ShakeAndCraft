@@ -35,19 +35,19 @@ La page "Dungeon" est une page de jeu dans laquelle le joueur doit secouer son t
 ![](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 ## :bar_chart: distribution of work
-- ✅ Fragment Home : Lucas Delanier</br>
-- ✅ Fragment Craft : Lucas Delanier</br>
-- ✅ Fragment Forge : Lucas Delanier</br>
-- ✅ Fragment Boss : Lucas Delanier</br>
-- ✅ Fragment Collect : Lucas Delanier</br>
-- ✅ Gestion de la rotation de l'écran Home fragment : Lucas Delanier</br>
-- ✅ Gestion du capteur Accélérometre : Lucas Delanier</br>
-- ✅ RecyclerView, Adapter, viewholder : Lucas Delanier</br>
-- ✅ ViewModel : Lucas Delanier</br>
-- ✅ LiveData : Lucas Delanier</br>
-- ✅ Model, Player, Item, Tool, Boss, ItemManager, Generator : Lucas Delanier</br>
-- ✅ Requete API, retrofit : Lucas Delanier</br>
-- 👷 Persistence profonde : Lucas Delanier, Theo Renaud</br>
+- ✅ Fragment Home : Lucas Delanier <img src ="https://codefirst.iut.uca.fr/git/avatars/6a3835d734392fccff3949f7c82a63b9?size=870" height="20px"></br>
+- ✅ Fragment Craft : Lucas Delanier<img src ="https://codefirst.iut.uca.fr/git/avatars/6a3835d734392fccff3949f7c82a63b9?size=870" height="20px"></br>
+- ✅ Fragment Forge : Lucas Delanier<img src ="https://codefirst.iut.uca.fr/git/avatars/6a3835d734392fccff3949f7c82a63b9?size=870" height="20px"></br>
+- ✅ Fragment Boss : Lucas Delanier<img src ="https://codefirst.iut.uca.fr/git/avatars/6a3835d734392fccff3949f7c82a63b9?size=870" height="20px"></br>
+- ✅ Fragment Collect : Lucas Delanier<img src ="https://codefirst.iut.uca.fr/git/avatars/6a3835d734392fccff3949f7c82a63b9?size=870" height="20px"></br>
+- ✅ Gestion de la rotation de l'écran Home fragment : Lucas Delanier<img src ="https://codefirst.iut.uca.fr/git/avatars/6a3835d734392fccff3949f7c82a63b9?size=870" height="20px"></br>
+- ✅ Gestion du capteur Accélérometre : Lucas Delanier<img src ="https://codefirst.iut.uca.fr/git/avatars/6a3835d734392fccff3949f7c82a63b9?size=870" height="20px"></br>
+- ✅ RecyclerView, Adapter, viewholder : Lucas Delanier<img src ="https://codefirst.iut.uca.fr/git/avatars/6a3835d734392fccff3949f7c82a63b9?size=870" height="20px"></br>
+- ✅ ViewModel : Lucas Delanier<img src ="https://codefirst.iut.uca.fr/git/avatars/6a3835d734392fccff3949f7c82a63b9?size=870" height="20px"></br>
+- ✅ LiveData : Lucas Delanier<img src ="https://codefirst.iut.uca.fr/git/avatars/6a3835d734392fccff3949f7c82a63b9?size=870" height="20px"></br>
+- ✅ Model, Player, Item, Tool, Boss, ItemManager, Generator : Lucas Delanier<img src ="https://codefirst.iut.uca.fr/git/avatars/6a3835d734392fccff3949f7c82a63b9?size=870" height="20px"></br>
+- ✅ Requete API, retrofit : Lucas Delanier<img src ="https://codefirst.iut.uca.fr/git/avatars/6a3835d734392fccff3949f7c82a63b9?size=870" height="20px"></br>
+- 👷 Persistence profonde : Lucas Delanier, Theo Renaud<img src ="https://codefirst.iut.uca.fr/git/avatars/6a3835d734392fccff3949f7c82a63b9?size=870" height="20px"><img src ="https://codefirst.iut.uca.fr/git/avatars/af9299d66a9a0bf7be17f8dc156f67b9?size=870" height="20px"></br>
 
 ## :dizzy: Getting Started
 
